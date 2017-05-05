@@ -17,6 +17,12 @@ zuul:
     timesheet:
       path: /timesheet/**
       serviceId: Timesheet
+    medical_leave:
+      path: /medical_leave/**
+      serviceId: Medical_leave
+    vacation:
+      path: /vacation/**
+      serviceId: Vacation
 
 ---
 spring:
