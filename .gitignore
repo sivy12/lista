@@ -2,3 +2,4 @@
 /proxy-app.iml
 /target/
 /.idea/
+*/**/*.db
