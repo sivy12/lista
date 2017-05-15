@@ -1,0 +1,66 @@
+<div class="employee__width">
+
+    <md-card class="employee__box" style="padding: 5px;">
+        <img style="margin-bottom: 10px;" src="images/avatar.jpg" class="employee__avatar md-avatar" alt="ktos" />
+
+        <div class="employee__login">
+            <div class="employee__dot"></div>
+
+            <span class="employee__status md-subhead">Zalogowany</span>
+        </div>
+
+        <div class="employee__trig">
+
+        </div>
+
+
+        <div class="employee__detail" ng-click="null">
+            <div>
+                {{detail.employees[0].name}}
+            </div>
+        </div>
+        <md-divider></md-divider>
+        <div class="employee__detail" ng-click="null">
+            <div>
+                {{detail.employees[0].lastname}}
+                {{detail.employees[0].position}}
+            </div>
+        </div>
+        <md-divider></md-divider>
+        <div class="employee__detail" ng-click="null">
+            <div>
+                Pokój : 112
+            </div>
+        </div>
+        <md-divider></md-divider>
+        <div class="employee__detail" ng-click="null">
+            <div>
+                Stanoawisko : Junior Web Developer
+            </div>
+        </div>
+
+        <div style="width: 100%; float: right;">
+            <md-button class="detail__btn" style=" float: right;" ng-click="detail.formcontainer()">
+                <md-icon type="checkbox" class="detail__edit"></md-icon>
+            </md-button>
+
+
+
+
+        </div>
+
+        <div ng-if="detail.formContainerVisible" class="detail__form">
+
+            <div class="detail__form">
+            <detail-form></detail-form>
+            </div>
+
+
+        </div>
+
+    </md-card>
+
+
+
+</div>
+

@@ -1,0 +1,16 @@
+{
+  "search": {
+    "searching": "Wyszukiwanie",
+    "save": "Zapisz",
+    "Cancel": "Anuluj",
+    "realizationType": "Typ zamówienia",
+    "documentType": "Typ dokumentu",
+    "nrb": "NRB",
+    "wallet": "Portfel",
+    "purchaser": "Zamawiający",
+    "newFundsNames": "Nazwa nowego funduszu",
+    "contractorNames": "Nazwa kontrahenta",
+    "fundsNames": "Nazwa funduszu",
+    "walletId": "ID"
+  }
+}

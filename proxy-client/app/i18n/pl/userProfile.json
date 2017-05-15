@@ -1,0 +1,25 @@
+{
+  "userProfile": {
+    "userEditTitle": "Edytuj użytkownika",
+    "users": "Użytkownicy",
+    "lp": "L.p",
+    "firstName": "Imię",
+    "surname": "Nazwisko",
+    "email": "Email",
+    "phone": "Telefon",
+    "location": "Lokalizacja",
+    "privileges": "Uprawnienia",
+    "profileEdit": "Edycja profilu użytkownika",
+    "department": "Oddział",
+    "edit": "Edytuj",
+    "save": "Zapisz",
+    "cancel": "Anuluj",
+    "admin": "Admin",
+    "supervisor": "Nadzorujący",
+    "lender": "Zamawiający",
+    "hasNotPrivileges": "Nie posiadasz uprawnień do wykonania operacji!",
+    "privilegesHasChanged": "Uprawnienia zostały zmienione",
+    "saveWithSuccess": "Zapisano z powodzieniem.",
+    "completeTheRequiredFields": "Uzupełnij wymagane pola"
+  }
+}
