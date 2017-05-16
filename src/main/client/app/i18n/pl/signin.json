@@ -1,0 +1,10 @@
+{
+  "signin": {
+    "signin": "ZALOGUJ",
+    "forgottenPassword": "Zapomniane hasło",
+    "login": "Login",
+    "password": "Hasło",
+    "account": "Konto",
+    "choose": "Wybierz"
+  }
+}

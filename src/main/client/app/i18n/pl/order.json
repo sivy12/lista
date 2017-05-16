@@ -1,0 +1,122 @@
+{
+  "STANDARD": "Standard",
+  "EXPRESS": "Ekspres",
+  "SCAN": "Skan",
+  "ORIGINAL": "Oryginał",
+  "order": {
+    "scanOrder": "Zamówienie skanów dokumentów",
+    "originalOrder": "Zamówienie oryginałów dokumentów",
+    "statusOrder": "Status (Data utworzenia)",
+    "dateConfirmOrder": "Data zatwierdzenia",
+    "confirmOrder": "Zatwierdź",
+    "idOrder": "ID",
+    "scanQuantity": "Ilość portfeli (spraw) dokumentów",
+    "originalQuantity": "Ilość portfeli (spraw)",
+    "purchaserOrder": "Zamawiający",
+    "purchaserNameOrder": "Nazwa",
+    "purchaserDepartmentOrder": "Dział/Departament",
+    "purchaserContactOrder": "Kontakt",
+    "purchaserContactValue": "Email: {{email}} tel: {{phone}}",
+    "approvedOrder": "Dostarczenie",
+    "realizationPreferDateOrder": "Preferowana data",
+    "typeOrder": "Typ zamówienia",
+    "receivedDateOrder": "Data otrzymania",
+    "orderType": "Typ zamówienia",
+    "realizationType": "Typ Realizacji",
+    "dataFail": "Wprowadzono błędną datę",
+    "error": "Wprowadzone dane są nie poprawne",
+    "noComment": "Nie wprowadzono uwagi",
+    "comments": "Uwagi",
+    "change": "Zmień",
+    "cancel": "Anuluj",
+    "save": "Zapisz",
+    "groupOrder": "Zamówienie zbiorcze",
+    "createDate": "Data utworzenia",
+    "maker": "Tworzący",
+    "saveComment": "Zapisz uwagi",
+    "orderStatusNames": {
+      "OPEN": "Otwarte",
+      "APPROVED": "Zatwierdzone",
+      "REALIZATION": "Realizacja",
+      "REALIZED": "Zrealizowane",
+      "RETURNED": "Zwrócone"
+    },
+    "orderStatusShortcut": {
+      "OPEN": "Otw",
+      "APPROVED": "Zat",
+      "REALIZATION": "Rea",
+      "REALIZED": "Zre",
+      "RETURNED": "Zwr"
+    },
+    "orderTypeNames": {
+      "SCAN": "Skan",
+      "ORIGINAL": "Oryginał"
+    },
+    "realizationTypeNames": {
+      "STANDARD": "Standard",
+      "EXPRESS": "Ekspres"
+    },
+    "openOrderNames": {
+      "mainContent": "Oczekuje na realizację",
+      "subContent": "Zlecenie nie zostało jeszcze przekazane do realizacji."
+    },
+    "approvedOrderNames": {
+      "mainContent": "Oczekuje na realizacje",
+      "subContent": "Zlecenie nie zostało jeszcze przekazane do realizacji"
+    },
+    "realizationOrderNames": {
+      "mainContent": "Realizowane",
+      "subContent": "Zlecenie zostało przekazane do realizacji"
+    },
+    "orderReturnNames": {
+      "scanReturns": "Brak zwrotów",
+      "scanReturnsMessage": "Dla zamówień skanów zwroty nie są rejestrowane",
+      "originalReturns": "Nie zarejestrowano zwrotu",
+      "originalReturnsMessage": "Zwrot można zarejestrować dla odebranych zamówień"
+    },
+    "orderCommentNames": {
+      "orderComment": "Brak uwag",
+      "orderCommentMessage": "Tu możesz zapisać uwagi dotyczące całego zamówienia"
+    },
+    "confirmMessage": "Czy na pewno chcesz zatwierdzić zamówienie ?",
+    "openMessage": "Czy na pewno chcesz otworzyć ponownie zamówienie ?",
+    "confirmConfirm": "Tak",
+    "confirmCancel": "Nie",
+    "canNotConfirm": "Nie można zmienić statusu zamówienia w realizacji !",
+    "openOrder": "Otwórz",
+    "noCases": "W celu zatwierdzenia musisz dodać sprawy !",
+    "noRealizationType": "Nie wybrano typu realizacji !",
+    "noPreferDateOrder": "Nie wybrano preferowanej daty!",
+    "receptionVenue": "Miejsce odbioru",
+    "orderReturn": {
+      "title": "Rejestracja zwrotu oryginałów",
+      "orderReturnedDate": "Data zwrotu oryginału",
+      "orderReturnedSuccess": "Zarejestrowano zmianę statusu dla zwrotu oryginału.",
+      "returnDate": "Data zwrotu:",
+      "returnedBy": "Zwrócono przez:"
+    },
+    "orderReturnReport": {
+      "emptyState": {
+        "title": "Brak protokołów",
+        "subtitle": "Tu wyświetlone będą protokoły zwrotu dokumentacji",
+        "button": "Dodaj protokół"
+      },
+      "modal": {
+        "changeNameTitle": "Edycja nazwy pliku",
+        "addReportSuccess": "Dodano raport",
+        "changeNameError": "Zmiana nazwy nie powiodła się",
+        "changeNameSuccess": "Zmieniono nazwę poprawnie",
+        "fileName": "Nazwa pliku",
+        "required": "Pole jest wymagane"
+      },
+      "view": {
+        "deleteFileSuccess": "Raport został usunięty"
+      },
+      "deleteMessage": "Czy chcesz usunąć protokół zwrotu?",
+      "deleteConfirm": "Tak",
+      "cancelMessage": "Anuluj",
+      "titleMessage": "Usunięcie protokołu zwrotu"
+    },
+    "folderNotAvailable": "Teczka jest obecnie wypożyczona przez: "
+  }
+}

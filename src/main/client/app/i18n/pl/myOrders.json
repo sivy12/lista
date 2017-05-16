@@ -1,0 +1,28 @@
+{
+  "myOrders": {
+    "order": "Zamówienie",
+    "orderProtocol": "Protokół wypożyczenia",
+    "returnProtocol": "Protokół zwrotu",
+    "myOrders": "Moje zamówienia",
+    "id": "ID",
+    "createDate": "Data utworzenia",
+    "status": "Status",
+    "purchaser": "Zamawiający",
+    "department": "Departament",
+    "type": "Typ",
+    "dateSummary": "Data zestawienia",
+    "receiveDate": "Data otrzymania",
+    "returnDate": "Data zwrotu",
+    "nrb": "NRB",
+    "wallet": "Portfel",
+    "orderType": "Typ zamówienia",
+    "documentType": "Typ dokumentu",
+    "search": "Szukaj",
+    "searching": "Wyszukiwanie",
+    "cancel": "Anuluj",
+    "scanOrder": "Zamówienie skanów",
+    "noOrdersHeader": "Brak zamówienia!",
+    "addOrderBtn": "Dodaj zamówienie",
+    "purchaserNotFound": "Nie znaleziono użytkownika"
+  }
+}

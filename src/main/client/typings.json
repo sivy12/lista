@@ -1,0 +1,13 @@
+{
+  "globalDependencies": {
+    "angular": "registry:dt/angular#1.5.0+20161101124950",
+    "angular-material": "registry:dt/angular-material#1.1.0-rc5.0+20161028134338",
+    "angular-resource": "registry:dt/angular-resource#1.5.0+20160914132003",
+    "angular-ui-bootstrap": "registry:dt/angular-ui-bootstrap#0.13.3+20160919090501",
+    "angular-ui-router": "registry:dt/angular-ui-router#1.1.5+20160810191828",
+    "file-saver": "registry:dt/file-saver#0.0.0+20161106021201",
+    "jquery": "registry:dt/jquery#1.10.0+20160929162922",
+    "angular-mocks": "registry:dt/angular-mocks#1.5.0+20160608104721",
+    "jasmine": "registry:dt/jasmine#2.2.0+20160621224255"
+  }
+}
