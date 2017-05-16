@@ -4,3 +4,10 @@
 /.idea/
 */**/*.db
 /proxy.iml
+/src/main/client/proxy-client.iml
+/src/main/client/.tmp/
+/src/main/client/bower_components/
+/src/main/client/node_modules/
+/src/main/client/target/
+/src/main/client/dist/
+/src/main/client/node/

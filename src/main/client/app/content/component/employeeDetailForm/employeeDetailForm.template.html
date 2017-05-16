@@ -1,0 +1,51 @@
+<form name="detailForm" novalidate>
+    <div class="header__main">Edytuj swoje dane</div>
+
+    <div layout="column" flex="100">
+        <md-input-container flex="50">
+            <label>Imię</label>
+            <input required name="clientName" ng-model="detail.employees[0].name">
+            <div ng-messages="detailForm.clientName.$error">
+                <div ng-message="required">Twoje imię jest wymagane.</div>
+            </div>
+        </md-input-container>
+    </div>
+
+    <div layout="column" flex="100">
+        <md-input-container flex="50">
+            <label>Nazwisko</label>
+            <input required name="clientLastname" ng-model="detail.employees[0].lastname">
+            <div ng-messages="detailForm.clientLastname.$error">
+                <div ng-message="required">Twoje nazwisko jest wymagane.</div>
+            </div>
+        </md-input-container>
+    </div>
+
+    <div layout="column" flex="100">
+        <md-input-container flex="50">
+            <label>Stanowisko</label>
+            <input required name="clientSection" ng-model="asd">
+            <div ng-messages="detailForm.clientSection.$error">
+                <div ng-message="required">Twoje stanowisko jest wymagane.</div>
+            </div>
+        </md-input-container>
+    </div>
+
+
+    <div layout="column" flex="100">
+        <md-input-container flex="50">
+            <label>Avatar</label>
+            <input required name="clientAvatar" ng-model="detail.employees[0].avatarFilePath">
+            <div ng-messages="detailForm.clientAvatar.$error">
+                <div ng-message="required">Twój avatar jest wymagane.</div>
+            </div>
+        </md-input-container>
+    </div>
+
+    <div>
+        <md-button class="detail__done" ng-click="detail.formcontainer()" type="submit">
+            <md-icon>done</md-icon>
+        </md-button>
+    </div>
+
+</form>

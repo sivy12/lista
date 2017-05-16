@@ -1,0 +1,101 @@
+{
+  "dockFlow": {
+    "title": "Odbiory DockFlow",
+    "true": "Tak",
+    "false": "Nie",
+    "modal": {
+      "save": "Zapisz",
+      "cancel": "Anuluj",
+      "success": "Zapisano z powodzeniem",
+      "error": "Formularz wymaga poprawy"
+    },
+    "transfer": {
+      "id": "ID",
+      "walletId": "ID",
+      "title": "GB Cesje - odbiór dokumentów",
+      "numberOfCases": "Liczba spraw",
+      "numberOfPurchasedDebts": "Liczba kupionych wierzytelności",
+      "numberOfCasesPerDebts": "Liczba spraw / wierzytelności",
+      "contractorName": "Nazwa kontrahenta",
+      "numberOfContractsSigned": "Liczba podpisanych umów",
+      "dateOfSigningContract": "Data podpisania umowy",
+      "dateReceiptOfDocumentsConfirmation": "Potwierdzenie odbioru dokumentów",
+      "numberOfDebts": "Liczba wierzytelności",
+      "fundName": "Nazwa funduszu",
+      "fund": "Fundusz",
+      "walletName": "Nazwa portfela",
+      "creationDate": "Data utworzenia",
+      "date": "Data"
+    },
+    "saleOfReceivables": {
+      "title": "Sprzedaż wierzytelności",
+      "dateOfPossibleSale": "Data ewentualnej sprzedaży",
+      "nameOfNewFund": "Nazwa nowego funduszu",
+      "numberOfSold": "Ilość sprzedanych",
+      "dateOfSaleNotification": "Data poinformowania DockFlow o sprzedaży"
+    },
+    "normalization": {
+      "title": "Normalizacja",
+      "input": "Wejście",
+      "output": "Wyjście"
+    },
+    "normalizationDepartment": {
+      "title": "Dane w zakresie Działu Normalizacji",
+      "subtitle": "DOK:",
+      "sendDbToDockFlowDate": "Wysłanie bazy do DocFlow",
+      "dateOfReceiptInformation": "Data otrzymania informacji o możliwości odbioru dokumentów",
+      "documentType": "Rodzaj przekazywanych dokumentów",
+      "isItExtraPaid": "Czy jest to dodatkowo płatne?",
+      "timeToPickUpDocuments": "Czas na odbiór dokumentów"
+    },
+    "itDepartment": {
+      "title": "Dane w zakresie Działu IT",
+      "getFileFrom": "Otrzymanie pliku do zaczytu",
+      "importWalletIntoProduction": "Zaczyt portfela na produkcję"
+    },
+    "trancheInfo": {
+      "title": "Transze",
+      "numberOfTranche": "Liczba transz",
+      "numberOfDoneTranche": "Nr. transzy przeprowadzonej",
+      "isItExtraPaid": "Czy jest to dodatkowo płatne?",
+      "timeToPickUpDocuments": "Czas na odbiór dokumentów"
+    },
+    "tranche": {
+      "title": "Transza",
+      "subtitle": "Dane otrzymane z DockFlow",
+      "add": "Dodaj",
+      "delete": "Usuń",
+      "comments": "Uwagi",
+      "missings": "Braki",
+      "dateOfReceiptDocumentsByDocFlow": "Data odbioru dokumentów przez DocFlow",
+      "confirmationOfProtocolCorrespondsToActualState": "Potwierdzenie zgodności protokołu ze stanem rzeczywistym",
+      "docFlowsPredictedProcessingDate": "Przewidywana data przetworzenia przez DocFlow",
+      "docFlowProcessingDate": "Data przetworzenia przez DocFlow",
+      "placingOverwrittenDocumentsIntoITGetBackDisk": "Umieszczenie przeprocesowanych dokumentów na dysk wymiany danych dla IT-GetBack",
+      "confirmationOfReceiptData": "Potwierdzenie otrzymania danych",
+      "dataExecutionCompletionDate": "Termin wykonania zaczytu danych",
+      "numberOfNRBsSupported": "Ilość NRB obsługiwanych",
+      "numberOfNRBsWithDocuments": "Ilość NRB z dokumentami",
+      "numberOfDocumentsTogether": "Ilość dokumentów razem"
+    },
+    "tranches": "Transze",
+    "noteType": {
+      "CREATED_DOCK_RECEPTION": "Zarejestrowano zwrot",
+      "TRANCHE": "Transza",
+      "TRANSFER": "GB Cesje - odbiór dokumentów",
+      "SALE_OF_RECEIVABLES": "Sprzedaż wierzytelności",
+      "NORMALIZATION": "Normalizacja",
+      "NORMALIZATION_DEPARTMENT": "Dane w zakresie Działu Normalizacji",
+      "IT_DEPARTMENT": "Dane w zakresie Działu IT",
+      "TRANCHE_INFO": "Transze",
+      "DELETE_TRANCHE": "Usunięto Transzę",
+      "undefined": "Podgląd zmian"
+    },
+    "emptyStates": {
+      "noteHeader": "Historia zmian",
+      "noteSubHeader": "Wybierz notatkę aby podejrzeć",
+      "mainHeader": "Brak zarejestrowanych odbiorów",
+      "mainBtnText": "Zarejestruj zwrot"
+    }
+  }
+}

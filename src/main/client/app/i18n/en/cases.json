@@ -1,0 +1,18 @@
+{
+  "cases": {
+    "case": "Sprawa",
+    "selectedCase": "Wybrama sprawa",
+    "setNrb": "Podaj NRB",
+    "caseNotFound": "Nie znaleziono żadnej sprawy...",
+    "range": "Zakres",
+    "selectedDocuments": "Wybrane dokumenty",
+    "fullDocumentation": "Teczka",
+    "filter": "Filtruj",
+    "save": "Zapisz",
+    "cancel": "Anuluj",
+    "wallet": "Portfel",
+    "debtor": "Dłużnik",
+    "change": "Zmień",
+    "documents": "Dokumenty"
+  }
+}

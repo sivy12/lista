@@ -1,0 +1,63 @@
+<div class="project__box">
+
+    <md-card>
+
+            <md-content>
+                <md-tabs md-dynamic-height md-border-bottom>
+                    <md-tab label="Aktualne">
+                        <md-content class="main__item">
+
+                            <md-list-item ng-click="null">
+                                <div layout="column">
+                                    Projekt Relion
+                                </div>
+                            </md-list-item>
+                            <md-list-item ng-click="null">
+                                <div class="md-list-item-text" layout="column">
+                                    Projekt employees
+                                </div>
+                            </md-list-item>
+
+                        </md-content>
+                    </md-tab>
+                    <md-tab label="Archiwalne">
+                        <md-content class="md-padding">
+
+                            <md-list-item ng-click="null">
+                                <div style="color: lightgray;" class="md-list-item-text" layout="column">
+                                    Projekt Relion
+                                </div>
+                            </md-list-item>
+
+                        </md-content>
+                    </md-tab>
+                </md-tabs>
+            </md-content>
+
+        <div ng-if="detail.formContainerVisible">
+            <form projectForm>
+                <div layout="column" flex="100">
+                    <md-input-container flex="50">
+                        <label>Nazwa projektu</label>
+                        <input required name="clientName" ng-model="detail.employees[0].name">
+                        <div ng-messages="detailForm.clientName.$error">
+                            <div ng-message="required">Twój projekt jest wymagane.</div>
+                        </div>
+                    </md-input-container>
+                </div>
+                <div layout="column" flex="100">
+                    <md-input-container flex="50">
+                        <label>Imię</label>
+                        <input required name="clientName" ng-model="detail.employees[0].name">
+                        <div ng-messages="detailForm.clientName.$error">
+                            <div ng-message="required">Twoje imię jest wymagane.</div>
+                        </div>
+                    </md-input-container>
+                </div>
+            </form>
+        </div>
+
+
+    </md-card>
+
+</div>

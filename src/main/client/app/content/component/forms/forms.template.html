@@ -1,0 +1,56 @@
+<div class="navbar__form" layout="column" flex="100">
+    <div layout="row" flex="100">
+        <label class="header__main">Przykładowe znaczniki form</label>
+    </div>
+   <form name="projectForm" novalidate>
+
+       <div style="padding-bottom: 30px;" layout="row" flex="100">
+           <div layout="column" flex="100">
+               <md-input-container class="md-block">
+                   <label>Opis</label>
+                   <input md-maxlength="30" required md-no-asterisk name="description" ng-model="project.description">
+                   <div ng-messages="projectForm.description.$error">
+                       <div ng-message="required">Pole wymagane.</div>
+                       <div ng-message="md-maxlength">To pole musi być krótsze niż 30 znaków.</div>
+                   </div>
+               </md-input-container>
+           </div>
+           <div layout="column" flex="100">
+               <md-input-container flex="50">
+                   <label>Imię</label>
+                   <input required name="clientName" ng-model="project.clientName">
+                   <div ng-messages="projectForm.clientName.$error">
+                       <div ng-message="required">Twoje imię jest wymagane.</div>
+                   </div>
+               </md-input-container>
+           </div>
+       </div>
+       <div layout="row" flex="100">
+           <div layout="column" flex="100">
+               <md-input-container class="md-block" flex-gt-xs>
+                   <label>Oddział</label>
+                   <input ng-model="user.company" disabled>
+               </md-input-container>
+           </div>
+           <div layout="column" flex="100">
+               <md-input-container class="md-block" flex-gt-sm>
+                   <md-select style="color: black;" name="department" placeholder="Wybierz oddział" ng-model="Reg.DepartmentRefId" required>
+                       <md-option style="color: black; width: 80%;" value="siema">Poniedziałek</md-option>
+                       <md-option style="color: black;" value="siema">Wtorek</md-option>
+                       <md-option style="color: black;" value="siema">Środa</md-option>
+                       <md-option style="color: black;" value="siema">Czwartek</md-option>
+                       <md-option style="color: black;" value="siema">Piątek</md-option>
+                       <md-option style="color: black;" value="siema">Sobota</md-option>
+                       <md-option style="color: black;" value="siema">Niedziela</md-option>
+                   </md-select>
+               </md-input-container>
+           </div>
+       </div>
+
+
+
+       <div>
+           <md-button class="navbar__btn" type="submit">Submit</md-button>
+       </div>
+   </form>
+</div>

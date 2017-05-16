@@ -1,0 +1,17 @@
+{
+  "main": {
+    "logoutMessage": "Czy jesteś pewien, że chcesz się wylogować?",
+    "logoutConfirm": "Tak",
+    "logoutCancel": "Nie",
+    "summary": "Zestawienia",
+    "usersSettings": "Użytkownicy",
+    "none": "Brak",
+    "closeDate": "Zamknij",
+    "clearDate": "Wyczyść",
+    "currentDate": "Dzisiaj",
+    "orders": "Moje zamówienia",
+    "addOriginal": "Zamówienie oryginałów",
+    "addScan": "Zamówienie skanów",
+    "dockFlowReception": "Odbiory DockFlow"
+  }
+}
