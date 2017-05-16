@@ -14,13 +14,12 @@ module employees {
 
 
 
-
         employees: Array<IEmployee>;
 
 
         // @ngInject
-        constructor(private employeeBackService: IEmployeeBackService) {
-            this.employeeBackService.getEmployee().then(this.getEmployeeCallBack);
+        constructor(private EmployeeBackService: IEmployeeBackService) {
+            this.EmployeeBackService.getEmployee().then(this.getEmployeeCallBack);
         }
 
         private getEmployeeCallBack =(res:IPageResponseArgs<IEmployee>) =>{

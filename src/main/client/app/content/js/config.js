@@ -2,6 +2,6 @@
 
  angular.module('config', [])
 
-.constant('ENV', {trybDeveloperski:false,trybTestowy:false,testowyIndex:false})
+.constant('ENV', {trybDeveloperski:true,trybTestowy:false,testowyIndex:false})
 
 ;

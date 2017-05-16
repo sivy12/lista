@@ -3,14 +3,29 @@
 module employees {
     'use strict';
 
+
+
     export class UserCtrl {
 
-        user: IUser = {};
+        public details: IContact[];
+        public name: string;
 
         // @ngInject
-        constructor() {
+        constructor(private EmployeeBackService: IEmployeeBackService) {
 
 
+        }
+
+        public wyswietlId(employee: number) {
+            this.EmployeeBackService.getEmployeeDetail(employee).then(this.getEmployeeDetailCallBack);
+
+
+            console.log("tutaj jest ID ", employee);
+        }
+
+        private getEmployeeDetailCallBack =(res:IEmployeeDetail<IContact>) =>{
+            this.details = res.contacts;
+            this.name = res.name;
         }
 
     }

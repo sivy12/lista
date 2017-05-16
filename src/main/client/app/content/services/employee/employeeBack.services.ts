@@ -5,6 +5,8 @@ module employees {
 
     export interface IEmployeeBackService {
         getEmployee(): ng.IHttpPromise<IPageResponseArgs<IEmployee>>;
+        getEmployeeDetail(employeeId: number): ng.IHttpPromise<IEmployeeDetail<IContact>>;
+
     }
     /*obiekt*/
 
@@ -23,6 +25,17 @@ module employees {
 
         public getEmployee = (): ng.IHttpPromise<IPageResponseArgs<IEmployee>> => {
             return this.$resource(`${this.ConfigService.getHost()}/employee/findAll`, {}, {
+                'query': {
+                    method: 'GET'
+                }
+            }).query({}).$promise
+            // return this.getEmployeesCallback()
+
+        };
+        public getEmployeeDetail (id: number): ng.IHttpPromise<IEmployeeDetail<IContact>> {
+            return this.$resource(`${this.ConfigService.getHost()}/employee/:id`, {
+                id: id,
+            }, {
                 'query': {
                     method: 'GET'
                 }
@@ -62,5 +75,5 @@ module employees {
 
     }
 
-    angular.module('employees').service('employeeBackService', EmployeeBackService);
+    angular.module('employees').service('EmployeeBackService', EmployeeBackService);
 }

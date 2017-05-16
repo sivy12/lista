@@ -7,26 +7,18 @@
 
 
 <div class="userPage__list">
-    <employee></employee>
+    <employee on-select-employee="userCtr.wyswietlId($event)"></employee>
 </div>
 
-<div class="userPage__content">
-    <div class="userPage">
-        <detail></detail>
+    <detpage></detpage>
 
-        <contact></contact>
 
+    <div ng-repeat="lol in userCtr.details">
+        {{lol.contactType}}
+        {{lol.contactValue}}
     </div>
 
-    <div class="userPage">
-        <project></project>
 
-        <skills></skills>
-    </div>
 
-    <div class="userPage">
-        <timesheet></timesheet>
-    </div>
-</div>
 
 </div>
