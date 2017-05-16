@@ -7,15 +7,26 @@
             <md-icon class="employeeList__hide"  ng-click="zwin()">subdirectory_arrow_right</md-icon>
         <md-list class="employee__list" flex>
 
+            <div ng-repeat="an in list.employees">
+             <md-list-item ng-click="list.selectEmployeeId(an.id)">
+                 <img src="{{an.avatarFilePath}}" class="md-avatar" alt="ktos" />
+                 <div>
+                     {{an.name}} {{an.lastname}} {{an.id}}
+
+                 </div>
+             </md-list-item>
+            </div>
 
 
-            <md-list-item ng-repeat="an in list.employees" ng-click="null">
-                <img src="{{an.avatarFilePath}}" class="md-avatar" alt="ktos" />
-                <div>
-                    {{an.name}} {{an.lastname}}
+            <div ng-repeat="det in list.details">
+                {{det.id}}
+                {{det.contactType}}
+                {{det.contactValue}}
+            </div>
+            liczba stron : {{list.numer}}
 
-                </div>
-            </md-list-item>
+
+
         </md-list>
 
 
