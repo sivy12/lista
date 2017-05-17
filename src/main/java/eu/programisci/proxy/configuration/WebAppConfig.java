@@ -9,11 +9,13 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter
  * Created by jakub on 16.05.17.
  */
 @Configuration
-@EnableWebMvc
 public class WebAppConfig extends WebMvcConfigurerAdapter {
+
+    private static final String[] CLASSPATH_RESOURCE_LOCATIONS = {
+            "classpath:/BOOT-INF/classes/client", "classpath:/client/"};
 
     @Override
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
-        registry.addResourceHandler("/resources/").addResourceLocations("classpath:/BOOT-INF/classes/client/");
+        registry.addResourceHandler("/ui/**").addResourceLocations(CLASSPATH_RESOURCE_LOCATIONS);
     }
 }
