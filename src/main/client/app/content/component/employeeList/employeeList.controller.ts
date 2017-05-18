@@ -23,7 +23,6 @@ module employees {
         // @ngInject
         constructor(private EmployeeBackService: IEmployeeBackService) {
             this.EmployeeBackService.getEmployee().then(this.getEmpoloyeeCallBack);
-            this.EmployeeBackService.getEmployeeDetail(50).then(this.getEmployeeDetailCallBack);
         }
 
 
@@ -44,6 +43,17 @@ module employees {
             console.log("tutaj jest maly kontroler", employeeId);
             this.onSelectEmployee({$event: angular.copy(employeeId)});
         };
+
+        // public selectEmployeeId(employeeId: number) {
+        //     this.EmployeeBackService.getEmployeeDetail(employeeId).then(this.getEmployeeDetailCallBack);
+        //
+        // };
+        //
+        // private getEmployeeDetailCallBack =(res:IEmployeeDetail<IContact>) =>{
+        //     this.details = res.contacts;
+        //     this.name = res.name;
+        // }
+
 
     }
 
