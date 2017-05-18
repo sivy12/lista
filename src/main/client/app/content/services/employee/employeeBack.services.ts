@@ -37,7 +37,18 @@ module employees {
                 id: id,
             }, {
                 'query': {
-                    method: 'GET'
+                    method: 'DELETE'
+                }
+            }).query({}).$promise
+            // return this.getEmployeesCallback()
+
+        };
+        public deleteEmployeeDetail (id: number): ng.IHttpPromise<IEmployeeDetail<IContact>> {
+            return this.$resource(`${this.ConfigService.getHost()}/employee/:id`, {
+                id: id,
+            }, {
+                'query': {
+                    method: 'DELETE'
                 }
             }).query({}).$promise
             // return this.getEmployeesCallback()

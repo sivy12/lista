@@ -8,7 +8,7 @@ module employees {
     export class UserCtrl {
 
         public details: IContact[];
-        public name: string;
+        public name: number;
 
         // @ngInject
         constructor(private EmployeeBackService: IEmployeeBackService) {
@@ -20,12 +20,11 @@ module employees {
             this.EmployeeBackService.getEmployeeDetail(employee).then(this.getEmployeeDetailCallBack);
 
 
-            console.log("tutaj jest ID ", employee);
+            this.name = employee;
         }
 
         private getEmployeeDetailCallBack =(res:IEmployeeDetail<IContact>) =>{
             this.details = res.contacts;
-            this.name = res.name;
         }
 
     }
