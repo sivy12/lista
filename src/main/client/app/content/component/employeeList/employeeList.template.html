@@ -8,8 +8,8 @@
         <md-list class="employee__list" flex>
 
             <div ng-repeat="an in list.employees">
-                <md-icon ng-click="list.deleteEmployeeId(an.id)">close</md-icon>
 
+                <a href="#/access/page/pageDetail/{{an.id}}">
                 <md-list-item ng-click="list.selectEmployeeId(an.id)">
                  <img src="{{an.avatarFilePath}}" class="md-avatar" alt="ktos" />
                  <div>
@@ -22,7 +22,7 @@
 
 
 
-                <a href="#/access/page/pageDetail/{{an.id}}">asd</a>
+                </a>
 
             </div>
 

@@ -14,7 +14,7 @@ module employees {
 
     export class EmployeeListCtrl implements IEmployeeList{
 
-        employees: employees.IEmployee[];
+        employees: IEmployee[];
         details: IContact[];
         public numer: number;
         public name: string;
