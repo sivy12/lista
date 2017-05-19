@@ -29,7 +29,8 @@ module employees {
 
         // @ngInject
         constructor(private EmployeeBackService: IEmployeeBackService,
-                    private $stateParams: ActorsStateParams) {
+                    private $stateParams: ActorsStateParams,
+                    private $state: ng.ui.IStateService) {
             this.EmployeeBackService.getEmployeeDetail(this.employeeId).then(this.getUserDetailCallBack);
 
         }
@@ -57,9 +58,15 @@ module employees {
 
 
         private getEmployeeDeleteCallBack =(res:IEmployeeDetail<IContact>) =>{
-            this.details = res.contacts;
+            this.$state.go('access.userPage');
+            this.EmployeeBackService.getEmployee().then(this.getEmpoloyeeCallBack);
+
         }
 
+        private getEmpoloyeeCallBack =(res:IPageResponseArgs<IEmployee>) =>{
+            this.employees=res.content;
+
+        }
 
 
 

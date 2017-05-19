@@ -14,7 +14,7 @@ module employees {
 
     export class EmployeeListCtrl implements IEmployeeList{
 
-        employees: IEmployee[];
+        employees: employees.IEmployee[];
         details: IContact[];
         public numer: number;
         public name: string;
@@ -41,7 +41,7 @@ module employees {
 
         public deleteEmployeeId(employeeId: number) {
             console.log("tutaj jest maly kontroler", employeeId);
-            this.EmployeeBackService.deleteEmployeeDetail(employeeId).then(this.getEmployeeDeleteCallBack);
+            this.EmployeeBackService.getEmployeeDetail(employeeId).then(this.getEmployeeDeleteCallBack);
 
         };
 
