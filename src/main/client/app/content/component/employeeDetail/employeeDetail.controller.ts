@@ -9,6 +9,8 @@ module employees {
     interface IEmployeeDane{
         employees: employees.IEmployee[];
         employeeId: number;
+        details:Array<IContact>
+
 
     }
 
@@ -21,6 +23,8 @@ module employees {
 
 
         employees: Array<IEmployee>;
+        details: IContact[];
+
 
 
         // @ngInject
@@ -39,16 +43,21 @@ module employees {
 
 
 
-        private getEmployeeCallBack =(res:IPageResponseArgs<IEmployee>) =>{
-            console.log("getEmployeeCallBack ",res);
-            this.employees=res.content;
-        }
-
         private getUserDetailCallBack =(det:IEmployeeDetail<IContact>) =>{
             this.names=det.name;
             this.lastname=det.lastname;
             this.avatarFilePath=det.avatarFilePath;
             this.position=det.position;
+        }
+
+        public deleteEmployeeId() {
+            this.EmployeeBackService.deleteEmployeeDetail(this.employeeId).then(this.getEmployeeDeleteCallBack);
+
+        };
+
+
+        private getEmployeeDeleteCallBack =(res:IEmployeeDetail<IContact>) =>{
+            this.details = res.contacts;
         }
 
 

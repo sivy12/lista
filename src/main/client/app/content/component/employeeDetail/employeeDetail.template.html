@@ -34,7 +34,7 @@
         <div class="employee__detail" ng-click="null">
             <div>
                 Stanowisko : {{detail.position}}
-                <md-icon ng-click="detail.pokaz()">close</md-icon>
+                <md-icon ng-click="detail.pokaz()">done</md-icon>
             </div>
         </div>
 
@@ -42,6 +42,11 @@
             <md-button class="detail__btn" style=" float: right;" ng-click="detail.formcontainer()">
                 <md-icon type="checkbox" class="detail__edit"></md-icon>
             </md-button>
+
+            <md-button>
+                <md-icon ng-click="detail.deleteEmployeeId()">close</md-icon>
+            </md-button>
+
 
 
 
