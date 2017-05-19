@@ -23,9 +23,9 @@ module employees {
         url: '/page',
         template: '<use></use>'
       })
-      .state('access.detail', {
+      .state('access.userPage.detail', { /*dodaje do rodzica widok, widok bez nazwy, jezeli wiecej dyrektyw na widok wtedy musze użyć nazwy widoku https://github.com/angular-ui/ui-router/wiki/multiple-named-views */
         url: '/pageDetail/:id',
-        template: '<span> siemanko</span>',
+        template: '<detpage></detpage>'
 
       })
     }
