@@ -23,6 +23,11 @@ module employees {
         url: '/page',
         template: '<use></use>'
       })
+      .state('access.detail', {
+        url: '/pageDetail/:id',
+        template: '<span> siemanko</span>',
+
+      })
     }
 
     otherwiseConfig = ($injector: ng.auto.IInjectorService)=> {
