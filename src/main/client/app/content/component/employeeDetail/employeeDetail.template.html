@@ -1,12 +1,12 @@
 <div class="employee__width">
 
     <md-card class="employee__box" style="padding: 5px;">
-        <img style="margin-bottom: 10px;" src="{{detail.employees[0].avatarFilePath}}" class="employee__avatar md-avatar" alt="ktos" />
+        <img style="margin-bottom: 10px;" src="{{detail.avatarFilePath}}" class="employee__avatar md-avatar" alt="ktos" />
 
         <div class="employee__login">
             <div class="employee__dot"></div>
 
-            <span class="employee__status md-subhead">Zalogowany</span>
+            <span  class="employee__status md-subhead">Zalogowany</span>
         </div>
 
         <div class="employee__trig">
@@ -16,15 +16,13 @@
 
         <div class="employee__detail" ng-click="null">
             <div>
-                {{detail.employees[0].name}}
+                {{detail.names}}
             </div>
         </div>
         <md-divider></md-divider>
         <div class="employee__detail" ng-click="null">
-            <div>
-                {{detail.employees[0].lastname}}
-                {{detail.employees[0].position}}
-            </div>
+            {{detail.lastname}}
+
         </div>
         <md-divider></md-divider>
         <div class="employee__detail" ng-click="null">
@@ -35,7 +33,8 @@
         <md-divider></md-divider>
         <div class="employee__detail" ng-click="null">
             <div>
-                Stanoawisko : Junior Web Developer
+                Stanowisko : {{detail.position}}
+                <md-icon ng-click="detail.pokaz()">close</md-icon>
             </div>
         </div>
 

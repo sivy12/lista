@@ -6,12 +6,22 @@
 module employees {
     'use strict';
 
-    export class EmployeeContactCtrl {
+    interface IContactDane{
+        details: employees.IContact[];
+        employeeId: number;
 
-        user: IUser = {};
+    }
+
+
+    export class EmployeeContactCtrl implements IContactDane{
+
+        details: Array<IContact>;
+        employeeId = this.$stateParams.id;
 
         // @ngInject
-        constructor() {
+        constructor(private EmployeeBackService: IEmployeeBackService,
+                    private $stateParams: ActorsStateParams) {
+            this.EmployeeBackService.getEmployeeDetail(this.employeeId).then(this.getUserDetailCallBack);
 
 
         }
@@ -21,6 +31,11 @@ module employees {
 
             this.formContainerVisible = !this.formContainerVisible;
         };
+
+
+        private getUserDetailCallBack =(det:IEmployeeDetail<IContact>) =>{
+            this.details=det.contacts;
+        }
 
     }
 

@@ -3,10 +3,16 @@
     <md-card >
 
         <md-subheader class="header__main">Dane kontaktowe</md-subheader>
-        <md-list-item>
+        <md-list-item ng-repeat="con in contact.details">
+
+
             <i class="contact__fa fa fa-skype" aria-hidden="true"></i>
+            <label>{{con.contactType}}</label>
+
             <div  layout="column">
-                <a class="contact__a" href="skype:sivy12_12?call">sivy12_12</a>
+                <a class="contact__a" href="skype:sivy12_12?call">
+                    {{con.contactValue}}
+                </a>
 
             </div>
         </md-list-item>
