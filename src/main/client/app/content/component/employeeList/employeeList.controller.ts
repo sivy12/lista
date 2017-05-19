@@ -34,15 +34,22 @@ module employees {
         }
 
 
-        private getEmployeeDetailCallBack =(res:IEmployeeDetail<IContact>) =>{
-            this.details = res.contacts;
-            this.name = res.name;
-        }
-
         public selectEmployeeId(employeeId: number) {
             console.log("tutaj jest maly kontroler", employeeId);
             this.onSelectEmployee({$event: angular.copy(employeeId)});
         };
+
+        public deleteEmployeeId(employeeId: number) {
+            console.log("tutaj jest maly kontroler", employeeId);
+            this.EmployeeBackService.deleteEmployeeDetail(employeeId).then(this.getEmployeeDeleteCallBack);
+
+        };
+
+
+        private getEmployeeDeleteCallBack =(res:IEmployeeDetail<IContact>) =>{
+            this.details = res.contacts;
+        }
+
 
         // public selectEmployeeId(employeeId: number) {
         //     this.EmployeeBackService.getEmployeeDetail(employeeId).then(this.getEmployeeDetailCallBack);
