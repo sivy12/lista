@@ -45,7 +45,6 @@ module employees {
             // return this.getEmployeesCallback()
 
         };
-
         public deleteEmployeeDetail (id: number): ng.IHttpPromise<IEmployeeDetail<IContact>> {
             return this.$resource(`${this.ConfigService.getHost()}/employee/:id`, {
                 id: id,

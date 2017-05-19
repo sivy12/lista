@@ -5,19 +5,26 @@ module employees {
 
     interface IDetail{
         details:Array<IContact>
+        employeeId: number
     }
 
     export class DetailPageCtrl implements IDetail{
 
-
         details: IContact[];
         public name: string;
         // @ngInject
-        constructor(private EmployeeBackService: IEmployeeBackService) {
-            this.EmployeeBackService.getEmployeeDetail(50).then(this.getUserDetailCallBack);
+        constructor(private EmployeeBackService: IEmployeeBackService,
+                    private $stateParams: ActorsStateParams) {
+            this.EmployeeBackService.getEmployeeDetail(this.employeeId).then(this.getUserDetailCallBack);
 
 
         }
+        employeeId = this.$stateParams.id;
+
+        private pokaz() {
+            console.log(this.employeeId);
+        }
+
 
         private getUserDetailCallBack =(det:IEmployeeDetail<IContact>) =>{
             this.details=det.contacts;
