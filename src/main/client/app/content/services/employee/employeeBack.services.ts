@@ -6,7 +6,7 @@ module employees {
     export interface IEmployeeBackService {
         getEmployee(): ng.IHttpPromise<IPageResponseArgs<IEmployee>>;
         getEmployeeDetail(employeeId: number): ng.IHttpPromise<IEmployeeDetail<IContact>>;
-
+        deleteEmployeeDetail (id: number): ng.IHttpPromise<IEmployeeDetail<IContact>>;
     }
     /*obiekt*/
 
@@ -32,12 +32,14 @@ module employees {
             // return this.getEmployeesCallback()
 
         };
+
+
         public getEmployeeDetail (id: number): ng.IHttpPromise<IEmployeeDetail<IContact>> {
             return this.$resource(`${this.ConfigService.getHost()}/employee/:id`, {
                 id: id,
             }, {
                 'query': {
-                    method: 'DELETE'
+                    method: 'GET'
                 }
             }).query({}).$promise
             // return this.getEmployeesCallback()

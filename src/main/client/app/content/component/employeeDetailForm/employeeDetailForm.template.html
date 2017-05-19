@@ -4,7 +4,7 @@
     <div layout="column" flex="100">
         <md-input-container flex="50">
             <label>Imię</label>
-            <input required name="clientName" ng-model="detail.employees[0].name">
+            <input required name="clientName" ng-model="detailForm.employees.name">
             <div ng-messages="detailForm.clientName.$error">
                 <div ng-message="required">Twoje imię jest wymagane.</div>
             </div>
@@ -14,7 +14,7 @@
     <div layout="column" flex="100">
         <md-input-container flex="50">
             <label>Nazwisko</label>
-            <input required name="clientLastname" ng-model="detail.employees[0].lastname">
+            <input required name="clientLastname" ng-model="detailForm.employees.lastname">
             <div ng-messages="detailForm.clientLastname.$error">
                 <div ng-message="required">Twoje nazwisko jest wymagane.</div>
             </div>
@@ -35,7 +35,7 @@
     <div layout="column" flex="100">
         <md-input-container flex="50">
             <label>Avatar</label>
-            <input required name="clientAvatar" ng-model="detail.employees[0].avatarFilePath">
+            <input required name="clientAvatar" ng-model="detailForm.employees.avatarFilePath">
             <div ng-messages="detailForm.clientAvatar.$error">
                 <div ng-message="required">Twój avatar jest wymagane.</div>
             </div>
@@ -43,7 +43,7 @@
     </div>
 
     <div>
-        <md-button class="detail__done" ng-click="detail.formcontainer()" type="submit">
+        <md-button class="detail__done" ng-click="detailForm.addEmployee()" type="submit">
             <md-icon>done</md-icon>
         </md-button>
     </div>

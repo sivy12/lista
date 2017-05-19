@@ -9,14 +9,19 @@
 module employees {
     'use strict';
 
+    export interface IEmployeeForm{
+        employees:Array<IEmployee>;
 
-    export class EmployeeDetailFormCtrl {
+    }
 
+    export class EmployeeDetailFormCtrl implements IEmployeeForm{
 
+        employees: employees.IEmployee[];
 
         // @ngInject
-        constructor() {
+        constructor(private EmployeeBackService: IEmployeeBackService) {
         }
+
 
 
 
