@@ -20,6 +20,8 @@ module employees {
         private lastname: string;
         private avatarFilePath: string;
         private position: string;
+        public onDeleteEmployee: ($event) => void;
+
 
 
         employees: Array<IEmployee>;
@@ -31,7 +33,7 @@ module employees {
         constructor(private EmployeeBackService: IEmployeeBackService,
                     private $stateParams: ActorsStateParams,
                     private $state: ng.ui.IStateService) {
-            this.EmployeeBackService.getEmployeeDetail(this.employeeId).then(this.getUserDetailCallBack);
+            this.EmployeeBackService.getEmployeeDetail(this.employeeId).then(this.getEmployeeDetailCallBack);
 
         }
 
@@ -39,12 +41,11 @@ module employees {
 
         private pokaz() {
             console.log(this.employeeId);
-
         }
 
 
 
-        private getUserDetailCallBack =(det:IEmployeeDetail<IContact>) =>{
+        private getEmployeeDetailCallBack =(det:IEmployee) =>{
             this.names=det.name;
             this.lastname=det.lastname;
             this.avatarFilePath=det.avatarFilePath;
@@ -57,9 +58,9 @@ module employees {
         };
 
 
-        private getEmployeeDeleteCallBack =(res:IEmployeeDetail<IContact>) =>{
+        private getEmployeeDeleteCallBack =(res:IEmployee) =>{
             this.$state.go('access.userPage');
-            this.EmployeeBackService.getEmployee().then(this.getEmpoloyeeCallBack);
+            this.onDeleteEmployee({$event: angular.copy(this.employeeId)});
 
         }
 

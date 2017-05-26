@@ -13,9 +13,11 @@
             <div  layout="column">
                 <a class="contact__a" href="skype:sivy12_12?call">
                     {{con.contactValue}}
+                    {{con.id}}
                 </a>
 
             </div>
+            <md-icon ng-click="contact.deleteContactId(con.id)">close</md-icon>
         </md-list-item>
         <md-divider></md-divider>
         </div>
@@ -49,27 +51,40 @@
         <form name="contactForm" novalidate>
             <div class="header__main">Dodaj kontakt</div>
 
-            <div class="contact__input" layout="column" flex="100">
-                <md-input-container class="md-block" flex-gt-sm>
-                    <md-select style="color: black;" name="department" placeholder="Wybierz typ kontaktu" ng-model="Reg.DepartmentRefId" required>
-                        <md-option style="color: black;" value="siema">Skype</md-option>
-                        <md-option style="color: black;" value="siema">Telefon</md-option>
-                        <md-option style="color: black;" value="siema">E-mail</md-option>
-                    </md-select>
+            <div layout="column" flex="100">
+                <!--<md-input-container class="md-block" flex-gt-sm>-->
+                    <!--<md-select style="color: black;" name="department" placeholder="Wybierz typ kontaktu" ng-model="Reg.DepartmentRefId" required>-->
+                        <!--<md-option style="color: black;" value="siema">Skype</md-option>-->
+                        <!--<md-option style="color: black;" value="siema">Telefon</md-option>-->
+                        <!--<md-option style="color: black;" value="siema">E-mail</md-option>-->
+                    <!--</md-select>-->
+                <!--</md-input-container>-->
+                <md-input-container>
+                    <input required name="contactValue" ng-model="contact.contact.contactValue">
+                    <div ng-messages="contactForm.contactValue.$error">
+                        <div ng-message="required">contactValue jest wymagany.</div>
+                    </div>
                 </md-input-container>
             </div>
-            <div class="contact__input" layout="column" flex="100">
-                <md-input-container flex="50">
-                    <label>Dane kontakowe</label>
-                    <input required name="dane" ng-model="detail.employees[0].name">
-                    <div ng-messages="detailForm.dane.$error">
-                        <div ng-message="required">Twój kontakt jest wymagany.</div>
+            <div layout="column" flex="100">
+                <md-input-container>
+                    <input required name="contactType" ng-model="contact.contact.contactType">
+                    <div ng-messages="contactForm.contactType.$error">
+                        <div ng-message="required">contactType jest wymagany.</div>
+                    </div>
+                </md-input-container>
+            </div>
+            <div layout="column" flex="100">
+                <md-input-container>
+                    <input required name="employeeId" ng-model="contact.contact.employeeId">
+                    <div ng-messages="contactForm.employeeId.$error">
+                        <div ng-message="required">employeeId jest wymagany.</div>
                     </div>
                 </md-input-container>
             </div>
 
             <div>
-                <md-button class="detail__done" ng-click="contact.formcontainer()" type="submit">
+                <md-button class="detail__done" ng-click="contact.saveContact()" type="submit">
                     <md-icon>done</md-icon>
                 </md-button>
             </div>

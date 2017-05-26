@@ -9,7 +9,9 @@ module employees {
     import IComponentController = angular.IComponentController;
 
     const EmployeeDetailComponent: ng.IComponentOptions = {
-        bindings: {},
+        bindings: {
+            onDeleteEmployee: "&"
+        },
         controller: EmployeeDetailCtrl,
         controllerAs: 'detail',
         templateUrl: 'content/component/employeeDetail/employeeDetail.template.html'
