@@ -7,7 +7,7 @@ module employees {
         id: number;
         contactType: string;
         contactValue: string;
-        employee: string;
+        employeeId: string;
     }
 
 }

@@ -5,8 +5,12 @@ module employees {
 
     export interface IEmployeeBackService {
         getEmployee(): ng.IHttpPromise<IPageResponseArgs<IEmployee>>;
-        getEmployeeDetail(employeeId: number): ng.IHttpPromise<IEmployeeDetail<IContact>>;
-        deleteEmployeeDetail (id: number): ng.IHttpPromise<IEmployeeDetail<IContact>>;
+        getEmployeeDetail(employeeId: number): ng.IHttpPromise<IEmployee>;
+        deleteEmployeeDetail (id: number): ng.IHttpPromise<IEmployee>;
+        getContacts (id: number): ng.IHttpPromise<Array<IContact>>;
+        deleteContacts (id: number, idContact: number): ng.IHttpPromise<IContact>;
+        saveContact(id: number, contact: IContact): ng.IHttpPromise<IContact>;
+
     }
     /*obiekt*/
 
@@ -24,17 +28,17 @@ module employees {
         }
 
         public getEmployee = (): ng.IHttpPromise<IPageResponseArgs<IEmployee>> => {
-            return this.$resource(`${this.ConfigService.getHost()}/employee/findAll`, {}, {
+            return this.$resource(`${this.ConfigService.getHost()}/employee/?`, {}, {
                 'query': {
                     method: 'GET'
                 }
-            }).query({}).$promise
+            }).query({page:0}).$promise
             // return this.getEmployeesCallback()
 
         };
 
 
-        public getEmployeeDetail (id: number): ng.IHttpPromise<IEmployeeDetail<IContact>> {
+        public getEmployeeDetail (id: number): ng.IHttpPromise<IEmployee> {
             return this.$resource(`${this.ConfigService.getHost()}/employee/:id`, {
                 id: id,
             }, {
@@ -45,7 +49,9 @@ module employees {
             // return this.getEmployeesCallback()
 
         };
-        public deleteEmployeeDetail (id: number): ng.IHttpPromise<IEmployeeDetail<IContact>> {
+
+        /*brakuje corsa*/
+        public deleteEmployeeDetail (id: number): ng.IHttpPromise<IEmployee> {
             return this.$resource(`${this.ConfigService.getHost()}/employee/:id`, {
                 id: id,
             }, {
@@ -56,6 +62,48 @@ module employees {
             // return this.getEmployeesCallback()
 
         };
+
+
+        /*jeżeli biorę tablice musze ją zadeklarować*/
+        public getContacts (id: number): ng.IHttpPromise<Array<IContact>> {
+            return this.$resource(`${this.ConfigService.getHost()}/employee/:id/contacts`, {
+                id: id,
+            }, {
+                'query': {
+                    method: 'GET',
+                    isArray: true
+                }
+            }).query({}).$promise
+            // return this.getEmployeesCallback()
+
+        };
+
+        public deleteContacts (id: number, idContact: number): ng.IHttpPromise<IContact> {
+            return this.$resource(`${this.ConfigService.getHost()}/employee/:id/contacts/:idContact`, {
+                id: id,
+                idContact: idContact,
+            }, {
+                'query': {
+                    method: 'DELETE'
+                }
+            }).query({}).$promise
+            // return this.getEmployeesCallback()
+
+        };
+
+        public saveContact(id: number, contact: IContact): ng.IHttpPromise<IContact> {
+            return this.$resource(`${this.ConfigService.getHost()}/employee/:id/contacts`, {
+                id: id,
+            }, {
+                'query': {
+                    method: 'POST'
+                }
+            }).query(contact).$promise;
+        };
+
+
+
+
 
 
 
@@ -79,7 +127,7 @@ module employees {
                         "id": 3,
                         "name": "Zbigniew",
                         "lastname": "Religa",
-                        "avatarFilePath": "../images/avatar3.jpg"
+                        "avatarFilePath": "../images/avatar1.jpg"
                     }
                 ]);
             return defer.promise;

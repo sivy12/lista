@@ -27,7 +27,7 @@ module employees {
       if (this.ENV.trybDeveloperski) {
         //http://dev.programisci.olsztyn.pl:19190/relyon-backend
         // this.host = "http://10.250.0.148:8082/";
-        this.host = "http://localhost:8080";
+        this.host = "http://localhost:8082";
       } else {
         this.host = ".";
       }
