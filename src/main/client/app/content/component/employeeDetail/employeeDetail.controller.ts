@@ -60,7 +60,8 @@ module employees {
 
 
         private getEmployeeDeleteCallBack =(res:IEmployee) =>{
-            this.onDeleteEmployee({$event: angular.copy(this.employeeId)});
+            this.onDeleteEmployee({$event: angular.copy(this.employeeId)}); /*przypisanei dopeiro w callbacku,
+            po wywołaniu metody*/
             this.$state.go('access.userPage');
 
         }
