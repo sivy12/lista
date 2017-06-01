@@ -9,9 +9,12 @@ module employees {
     import IComponentController = angular.IComponentController;
 
     const EmployeeDetailFormComponent: ng.IComponentOptions = {
-        bindings: {},
+        bindings: {
+            onEdit: "&",
+
+        },
         controller: EmployeeDetailFormCtrl,
-        controllerAs: 'detailForm',
+        controllerAs: 'detailFormCtr',
         templateUrl: 'content/component/employeeDetailForm/employeeDetailForm.template.html'
     };
 

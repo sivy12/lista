@@ -5,7 +5,7 @@
                 <input style="background: white; border: none" type="text" class="form-control" ng-model="search" placeholder="Wyszukaj" />
             </div>
 
-            <md-icon class="employeeList__hide"  ng-click="list.show()">subdirectory_arrow_right</md-icon>
+            <md-icon class="employeeList__hide">subdirectory_arrow_right</md-icon>
         <md-list class="employee__list" flex>
 
             <div ng-repeat="an in list.employees | filter: search">

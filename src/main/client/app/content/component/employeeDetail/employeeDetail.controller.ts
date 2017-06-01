@@ -6,28 +6,16 @@
 module employees {
     'use strict';
 
-    interface IEmployeeDane{
-        employees: employees.IEmployee[];
-        employeeId: number;
-        details:Array<IContact>
 
-
-    }
-
-    export class EmployeeDetailCtrl implements IEmployeeDane{
+    export class EmployeeDetailCtrl{
 
         private names: string;
         private lastname: string;
         private avatarFilePath: string;
         private position: string;
         public onDeleteEmployee: ($event) => void;
-
-
-
-        employees: Array<IEmployee>;
-        details: IContact[];
-
-
+        employeeId = this.$stateParams.id;
+        private delete: boolean = false;
 
         // @ngInject
         constructor(private EmployeeBackService: IEmployeeBackService,
@@ -37,13 +25,6 @@ module employees {
 
         }
 
-        employeeId = this.$stateParams.id;
-
-        private pokaz() {
-            console.log(this.employeeId);
-        }
-
-
 
         private getEmployeeDetailCallBack =(det:IEmployee) =>{
             this.names=det.name;
@@ -52,9 +33,12 @@ module employees {
             this.position=det.position;
         }
 
-        public deleteEmployeeId() {
-            this.EmployeeBackService.deleteEmployeeDetail(this.employeeId).then(this.getEmployeeDeleteCallBack);
+        private deleteEmployeeId() {
+            this.delete = true;
+       if(this.delete == true){
+           this.EmployeeBackService.deleteEmployeeDetail(this.employeeId).then(this.getEmployeeDeleteCallBack);
 
+       }
 
         };
 
@@ -62,21 +46,19 @@ module employees {
         private getEmployeeDeleteCallBack =(res:IEmployee) =>{
             this.onDeleteEmployee({$event: angular.copy(this.employeeId)}); /*przypisanei dopeiro w callbacku,
             po wywołaniu metody*/
+            this.delete = false;
             this.$state.go('access.userPage');
 
         }
 
-        private getEmpoloyeeCallBack =(res:IPageResponseArgs<IEmployee>) =>{
-            this.employees=res.content;
-
+        private hideForm(zmienna){
+            this.formContainerVisible = zmienna;
         }
-
 
 
         /*variables for visible*/
         formContainerVisible = false;
-        public formcontainer() {
-
+        private formcontainer() {
             this.formContainerVisible = !this.formContainerVisible;
         };
 

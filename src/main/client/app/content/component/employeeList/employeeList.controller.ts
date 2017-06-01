@@ -25,8 +25,8 @@ module employees {
         // @ngInject
         constructor(private EmployeeBackService: IEmployeeBackService) {
             this.init();
-            this.refresh();
         }
+
         /*to chcę wywoływać za każdym przekazaniem true*/
         private init() {
         if (this.newList == true){
@@ -35,7 +35,7 @@ module employees {
             console.log(this.newList);
         }
         }
-
+        /*przy zmianie onChange wyłapuje*/
         public $onChanges(changesObj) {
             console.log(changesObj)
             if (changesObj && changesObj.newEmployee && changesObj.newEmployee.currentValue){
@@ -43,17 +43,6 @@ module employees {
                 this.init();
             }
         }
-
-
-        /*niby w konsoli dziecka powinno pokazac te id co przekazałem z rodzica a krzyczy że to nie funkcja*/
-        public refresh() {
-            if(this.newEmployee==true)
-            {
-                console.log(this.newEmployee);
-            }
-        }
-
-
 
 
 
