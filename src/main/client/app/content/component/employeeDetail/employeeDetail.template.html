@@ -34,7 +34,6 @@
         <div class="employee__detail" ng-click="null">
             <div>
                 Stanowisko : {{detail.position}}
-                <md-icon ng-click="detail.pokaz()">done</md-icon>
             </div>
         </div>
 
@@ -55,15 +54,13 @@
         <div ng-if="detail.formContainerVisible" class="detail__form">
 
             <div class="detail__form">
-            <detail-form></detail-form>
+            <detail-form on-edit="detail.hideForm($event)"></detail-form>
             </div>
 
 
         </div>
 
     </md-card>
-
-
 
 </div>
 

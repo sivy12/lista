@@ -18,9 +18,9 @@ module employees {
 
         }
         /*TO jest kontroler RODZICA tutaj mam pod employee przekazany argument z dziecka
-         innego i chcę go przekazać z rodzica do innego dziecka
+         innego i chcę go przekazać z rodzicasda do innego dziecka
          */
-        public poka(employee: number) {
+        public refreshFromChild(employee: number) {
             console.log("jeste m tu tez wysoko ziom " + employee);
             this.refreshEmployee = true;
             this.$timeout(() => {  /*timeout żeby powracało do wartości wyjściowej*/

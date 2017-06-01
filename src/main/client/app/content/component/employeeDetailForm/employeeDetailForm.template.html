@@ -4,7 +4,7 @@
     <div layout="column" flex="100">
         <md-input-container flex="50">
             <label>Imię</label>
-            <input required name="clientName" ng-model="detailForm.employees.name">
+            <input required name="clientName" ng-model="detailFormCtr.employee.name">
             <div ng-messages="detailForm.clientName.$error">
                 <div ng-message="required">Twoje imię jest wymagane.</div>
             </div>
@@ -14,7 +14,7 @@
     <div layout="column" flex="100">
         <md-input-container flex="50">
             <label>Nazwisko</label>
-            <input required name="clientLastname" ng-model="detailForm.employees.lastname">
+            <input required name="clientLastname" ng-model="detailFormCtr.employee.lastname">
             <div ng-messages="detailForm.clientLastname.$error">
                 <div ng-message="required">Twoje nazwisko jest wymagane.</div>
             </div>
@@ -24,7 +24,7 @@
     <div layout="column" flex="100">
         <md-input-container flex="50">
             <label>Stanowisko</label>
-            <input required name="clientSection" ng-model="asd">
+            <input required name="clientSection" ng-model="detailFormCtr.employee.position">
             <div ng-messages="detailForm.clientSection.$error">
                 <div ng-message="required">Twoje stanowisko jest wymagane.</div>
             </div>
@@ -35,15 +35,22 @@
     <div layout="column" flex="100">
         <md-input-container flex="50">
             <label>Avatar</label>
-            <input required name="clientAvatar" ng-model="detailForm.employees.avatarFilePath">
+            <input required name="clientAvatar" ng-model="detailFormCtr.employee.avatarFilePath">
             <div ng-messages="detailForm.clientAvatar.$error">
                 <div ng-message="required">Twój avatar jest wymagane.</div>
             </div>
         </md-input-container>
     </div>
 
+    <div layout="column" flex="100" ng-if="detailFormCtr.lol"> <!--wyswietlone id ale ukryte-->
+        <md-input-container>
+            <input required name="employeeId" ng-model="detailFormCtr.employee.id">
+
+        </md-input-container>
+    </div>
+
     <div>
-        <md-button class="detail__done" ng-click="detailForm.addEmployee()" type="submit">
+        <md-button class="detail__done" ng-click="detailFormCtr.saveEmployee()" type="submit">
             <md-icon>done</md-icon>
         </md-button>
     </div>

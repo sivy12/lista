@@ -4,7 +4,7 @@
 
         <md-subheader class="header__main">Dane kontaktowe</md-subheader>
         <div ng-repeat="con in contact.details">
-        <md-list-item>
+        <md-list-item class="contact__item">
 
 
             <i class="contact__fa fa fa-skype" aria-hidden="true"></i>
@@ -13,32 +13,17 @@
             <div  layout="column">
                 <a class="contact__a" href="skype:sivy12_12?call">
                     {{con.contactValue}}
-                    {{con.id}}
                 </a>
 
             </div>
-            <md-icon ng-click="contact.deleteContactId(con.id)">close</md-icon>
+            <md-icon class="contact__delete" ng-click="contact.deleteContactId(con.id)">close</md-icon>
         </md-list-item>
         <md-divider></md-divider>
         </div>
-        <!--<md-list-item >-->
-            <!--<i  class="contact__fa fa fa-envelope-o" aria-hidden="true"></i>-->
-            <!--<div  layout="column">-->
-                <!--<a class="contact__a" href="mailto:Rabczewski.Damian@programisci.eu">Rabczewski.Damian@programisci.eu</a>-->
-            <!--</div>-->
-        <!--</md-list-item>-->
-        <!--<md-divider></md-divider>-->
-        <!--<md-list-item>-->
-            <!--<i class="contact__fa fa fa-phone" aria-hidden="true"></i>-->
-            <!--<div layout="column">-->
-                <!--<a class="contact__a" href="tel:785-524-548">785-524-548</a>-->
 
-            <!--</div>-->
-        <!--</md-list-item>-->
-        <!--<md-divider></md-divider>-->
         <md-list-item>
-            <md-button class="detail__done" ng-click="contact.formcontainer()" type="submit">
-                <md-icon>edit</md-icon>
+            <md-button class="contact__done" ng-click="contact.formcontainer()" type="submit">
+                <md-icon>add</md-icon>
             </md-button>
         </md-list-item>
 
@@ -55,17 +40,11 @@
                 <md-input-container>
                     <input required name="contactValue" ng-model="contact.contact.contactValue">
                     <div ng-messages="contactForm.contactValue.$error">
-                        <div ng-message="required">contactValue jest wymagany.</div>
+                        <div ng-message="required">Wartość kontaktu jest wymagana.</div>
                     </div>
                 </md-input-container>
             </div>
             <div layout="column" flex="100">
-                <!--<md-input-container>-->
-                    <!--<input required name="contactType" ng-model="contact.contact.contactType">-->
-                    <!--<div ng-messages="contactForm.contactType.$error">-->
-                        <!--<div ng-message="required">contactType jest wymagany.</div>-->
-                    <!--</div>-->
-                <!--</md-input-container>-->
                 <md-input-container class="md-block" flex-gt-sm>
                 <md-select style="color: black;" name="contactType" placeholder="Wybierz typ kontaktu" ng-model="contact.contact.contactType" required>
                 <md-option style="color: black;" value="SKYPE">SKYPE</md-option>
@@ -76,7 +55,7 @@
                 <md-option style="color: black;" value="ADDRESS">ADDRESS</md-option>
                 </md-select>
                     <div ng-messages="contactForm.contactType.$error">
-                    <div ng-message="required">contactType jest wymagany.</div>
+                    <div ng-message="required">Typ kontaktu jest wymagany.</div>
                     </div>
                 </md-input-container>
             </div>
@@ -85,15 +64,18 @@
             <div layout="column" flex="100" ng-if="contact.hideId"> <!--wyswietlone id ale ukryte-->
                 <md-input-container>
                     <input required name="employeeId" ng-model="contact.employeeId" readonly>
-                    <div ng-messages="contactForm.employeeId.$error">
-                        <div ng-message="required">employeeId jest wymagany.</div>
-                    </div>
+                    <!--<div ng-messages="contactForm.employeeId.$error">-->
+                        <!--<div ng-message="required">employeeId jest wymagany.</div>-->
+                    <!--</div>-->
                 </md-input-container>
             </div>
 
             <div>
-                <md-button class="detail__done" ng-click="contact.saveContact()" type="submit">
-                    <md-icon>done</md-icon>
+                <md-button class="contact__back" ng-click="contact.back()" type="submit">
+                    <md-icon>arrow_back</md-icon>
+                </md-button>
+                <md-button class="contact__done" ng-click="contact.saveContact()" type="submit">
+                    <md-icon>add</md-icon>
                 </md-button>
             </div>
         </form>

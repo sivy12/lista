@@ -6,20 +6,12 @@
 module employees {
     'use strict';
 
-    interface IContactDane{
-        details:Array<IContact>
-        employeeId: number;
-
-    }
-
-
-    export class EmployeeContactCtrl implements IContactDane{
+    export class EmployeeContactCtrl{
 
         details: Array<IContact>;
         employeeId = this.$stateParams.id;
         contact: IContact;
         private newContact: boolean = true;
-        private hideId: boolean = false;
 
 
         // @ngInject
@@ -45,7 +37,7 @@ module employees {
         };
 
 
-        public deleteContactId(contactId: number) {
+        private deleteContactId(contactId: number) {
             this.EmployeeBackService.deleteContacts(this.employeeId, contactId).then(this.contactDeleteCallBack);
 
         };
@@ -59,8 +51,12 @@ module employees {
 
         /*save*/
 
-        public saveContact = ()=> {
-                this.EmployeeBackService.saveContact(this.employeeId, this.contact).then(this.saveContactCallBack);
+        private saveContact = ()=> {
+                if (this.contact != null){
+                    this.EmployeeBackService.saveContact(this.employeeId, this.contact).then(this.saveContactCallBack);
+                } else {
+                   // this.formContainerVisible = false; moge na 1 guziku zrobic
+                }
         };
 
         private saveContactCallBack = (response)=> {
@@ -68,14 +64,20 @@ module employees {
             this.formContainerVisible = false;
             this.newContact = true;
             this.init(this.newContact);
-
+            this.contact.contactValue = defaultStatus;
+            this.contact.contactType = defaultStatus;
         };
+
+        private back(){
+            this.formContainerVisible = false;
+
+        }
 
 
 
 
         formContainerVisible = false;
-        public formcontainer() {
+        private formcontainer() {
 
             this.formContainerVisible = !this.formContainerVisible;
         };

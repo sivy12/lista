@@ -10,6 +10,8 @@ module employees {
         getContacts (id: number): ng.IHttpPromise<Array<IContact>>;
         deleteContacts (id: number, idContact: number): ng.IHttpPromise<IContact>;
         saveContact(id: number, contact: IContact): ng.IHttpPromise<IContact>;
+        saveEmployee(employee: IEmployee): ng.IHttpPromise<IEmployee>;
+
 
     }
     /*obiekt*/
@@ -99,6 +101,15 @@ module employees {
                     method: 'POST'
                 }
             }).query(contact).$promise;
+        };
+
+        public saveEmployee(employee: IEmployee): ng.IHttpPromise<IEmployee> {
+            return this.$resource(`${this.ConfigService.getHost()}/employee/`, {
+            }, {
+                'query': {
+                    method: 'POST'
+                }
+            }).query(employee).$promise;
         };
 
 
