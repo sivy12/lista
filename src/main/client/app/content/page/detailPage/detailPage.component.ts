@@ -9,7 +9,7 @@ module employees {
 
     const DetailPageComponent: ng.IComponentOptions = {
         bindings: {
-
+            onDeleteRefresh: "&"
         },
         controller: DetailPageCtrl,
         controllerAs: 'detailCtr',

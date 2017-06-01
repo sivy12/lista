@@ -12,6 +12,9 @@ module employees {
 
         details: IContact[];
         public name: string;
+        public onDeleteRefresh: ($event) => void;
+
+
         // @ngInject
         constructor(private EmployeeBackService: IEmployeeBackService,
                     private $stateParams: ActorsStateParams) {
@@ -30,6 +33,14 @@ module employees {
             this.details=det.contacts;
             this.name=det.name;
         }
+
+        public pokaSowe(employee: number) {
+            console.log("jestem tu tez " + employee);
+            this.onDeleteRefresh({$event: angular.copy(employee)});
+
+        }
+        
+        
 
     }
 

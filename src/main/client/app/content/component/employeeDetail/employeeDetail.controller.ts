@@ -55,12 +55,13 @@ module employees {
         public deleteEmployeeId() {
             this.EmployeeBackService.deleteEmployeeDetail(this.employeeId).then(this.getEmployeeDeleteCallBack);
 
+
         };
 
 
         private getEmployeeDeleteCallBack =(res:IEmployee) =>{
-            this.$state.go('access.userPage');
             this.onDeleteEmployee({$event: angular.copy(this.employeeId)});
+            this.$state.go('access.userPage');
 
         }
 
