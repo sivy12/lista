@@ -24,17 +24,13 @@ module employees {
         }
         employeeId = this.$stateParams.id;
 
-        private pokaz() {
-            console.log(this.employeeId);
-        }
-
 
         private getUserDetailCallBack =(det:IEmployeeDetail<IContact>) =>{
             this.details=det.contacts;
             this.name=det.name;
         }
 
-        public pokaSowe(employee: number) {
+        public takeRefreshList(employee: number) {
             console.log("jestem tu tez " + employee);
             this.onDeleteRefresh({$event: angular.copy(employee)});
 

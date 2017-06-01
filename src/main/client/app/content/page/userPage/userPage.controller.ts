@@ -23,7 +23,7 @@ module employees {
         public poka(employee: number) {
             console.log("jeste m tu tez wysoko ziom " + employee);
             this.refreshEmployee = true;
-            this.$timeout(() => {
+            this.$timeout(() => {  /*timeout żeby powracało do wartości wyjściowej*/
                 this.refreshEmployee = false;
 
             });
