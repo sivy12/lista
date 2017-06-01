@@ -7,12 +7,14 @@
 
 
 <div class="userPage__list">
-    <employee on-select-employee="userCtr.wyswietlId($event)"></employee>
+    <employee on-select-employee="userCtr.wyswietlId($event)"
+              new-employee="userCtr.refreshEmployee"></employee>
+
 </div>
 
     <div ui-view></div>
 
-    
+
 
 
 </div>

@@ -18,6 +18,9 @@ module employees {
         details: Array<IContact>;
         employeeId = this.$stateParams.id;
         contact: IContact;
+        private newContact: boolean = true;
+        private hideId: boolean = false;
+
 
         // @ngInject
         constructor(private EmployeeBackService: IEmployeeBackService,
@@ -25,10 +28,17 @@ module employees {
                     //private JQueryUtilsService: IJQueryUtilsService,
                     //private $translate: ITranslateService,
                     ) {
-            this.EmployeeBackService.getContacts(this.employeeId).then(this.getContactCallBack);
-
+            this.init(this.newContact);
 
         }
+
+        private init(newContact: boolean) {
+            if (newContact == true){
+                this.EmployeeBackService.getContacts(this.employeeId).then(this.getContactCallBack);
+                this.newContact = false;
+            }
+        }
+
         /*jeżeli przyjmuje tablice musze ja zadeklarowac w servisie oraz res oznacza to ze bierze całą tablicę*/
         private getContactCallBack =(res:Array<IContact>) =>{
             this.details = res;
@@ -43,7 +53,8 @@ module employees {
 
         private contactDeleteCallBack =(res:IEmployee) =>{
             //this.$state.go('access.userPage');
-
+            this.newContact = true;
+            this.init(this.newContact);
         };
 
         /*save*/
@@ -54,6 +65,10 @@ module employees {
 
         private saveContactCallBack = (response)=> {
             //this.JQueryUtilsService.showSuccessMessage(this.$translate.instant("userProfile.saveWithSuccess"));
+            this.formContainerVisible = false;
+            this.newContact = true;
+            this.init(this.newContact);
+
         };
 
 

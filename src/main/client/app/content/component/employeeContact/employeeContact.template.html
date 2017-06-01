@@ -52,13 +52,6 @@
             <div class="header__main">Dodaj kontakt</div>
 
             <div layout="column" flex="100">
-                <!--<md-input-container class="md-block" flex-gt-sm>-->
-                    <!--<md-select style="color: black;" name="department" placeholder="Wybierz typ kontaktu" ng-model="Reg.DepartmentRefId" required>-->
-                        <!--<md-option style="color: black;" value="siema">Skype</md-option>-->
-                        <!--<md-option style="color: black;" value="siema">Telefon</md-option>-->
-                        <!--<md-option style="color: black;" value="siema">E-mail</md-option>-->
-                    <!--</md-select>-->
-                <!--</md-input-container>-->
                 <md-input-container>
                     <input required name="contactValue" ng-model="contact.contact.contactValue">
                     <div ng-messages="contactForm.contactValue.$error">
@@ -67,16 +60,31 @@
                 </md-input-container>
             </div>
             <div layout="column" flex="100">
-                <md-input-container>
-                    <input required name="contactType" ng-model="contact.contact.contactType">
+                <!--<md-input-container>-->
+                    <!--<input required name="contactType" ng-model="contact.contact.contactType">-->
+                    <!--<div ng-messages="contactForm.contactType.$error">-->
+                        <!--<div ng-message="required">contactType jest wymagany.</div>-->
+                    <!--</div>-->
+                <!--</md-input-container>-->
+                <md-input-container class="md-block" flex-gt-sm>
+                <md-select style="color: black;" name="contactType" placeholder="Wybierz typ kontaktu" ng-model="contact.contact.contactType" required>
+                <md-option style="color: black;" value="SKYPE">SKYPE</md-option>
+                <md-option style="color: black;" value="EMAIL">EMAIL</md-option>
+                <md-option style="color: black;" value="PHONE_PRIVATE">PHONE_PRIVATE</md-option>
+                <md-option style="color: black;" value="PHONE_BUISNESS">PHONE_BUISNESS</md-option>
+                <md-option style="color: black;" value="SLACK">SLACK</md-option>
+                <md-option style="color: black;" value="ADDRESS">ADDRESS</md-option>
+                </md-select>
                     <div ng-messages="contactForm.contactType.$error">
-                        <div ng-message="required">contactType jest wymagany.</div>
+                    <div ng-message="required">contactType jest wymagany.</div>
                     </div>
                 </md-input-container>
             </div>
-            <div layout="column" flex="100">
+
+
+            <div layout="column" flex="100" ng-if="contact.hideId"> <!--wyswietlone id ale ukryte-->
                 <md-input-container>
-                    <input required name="employeeId" ng-model="contact.contact.employeeId">
+                    <input required name="employeeId" ng-model="contact.employeeId" readonly>
                     <div ng-messages="contactForm.employeeId.$error">
                         <div ng-message="required">employeeId jest wymagany.</div>
                     </div>
