@@ -15,5 +15,5 @@ module employees {
         templateUrl: 'content/component/project/project.template.html'
     };
 
-    angular.module('employees').component('project', ProjectComponent); /*nazwa komponentu*/
+    angular.module('employees').component('project', ProjectComponent);
 }

@@ -17,5 +17,5 @@ module employees {
         templateUrl: 'content/component/employeeDetail/employeeDetail.template.html'
     };
 
-    angular.module('employees').component('detail', EmployeeDetailComponent); /*nazwa komponentu*/
+    angular.module('employees').component('detail', EmployeeDetailComponent);
 }

@@ -11,12 +11,11 @@ module employees {
     const EmployeeDetailFormComponent: ng.IComponentOptions = {
         bindings: {
             onEdit: "&",
-
         },
         controller: EmployeeDetailFormCtrl,
         controllerAs: 'detailFormCtr',
         templateUrl: 'content/component/employeeDetailForm/employeeDetailForm.template.html'
     };
 
-    angular.module('employees').component('detailForm', EmployeeDetailFormComponent); /*nazwa komponentu*/
+    angular.module('employees').component('detailForm', EmployeeDetailFormComponent);
 }

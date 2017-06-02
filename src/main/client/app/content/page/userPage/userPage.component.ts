@@ -8,13 +8,11 @@ module employees {
     import IComponentController = angular.IComponentController;
 
     const UserPageComponent: ng.IComponentOptions = {
-        bindings: {
-
-        },
+        bindings: {},
         controller: UserCtrl,
         controllerAs: 'userCtr',
         templateUrl: 'content/page/userPage/userPage.template.html'
     };
 
-    angular.module('employees').component('use', UserPageComponent); /*nazwa komponentu*/
+    angular.module('employees').component('use', UserPageComponent);
 }

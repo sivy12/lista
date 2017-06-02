@@ -15,5 +15,5 @@ module employees {
     templateUrl: 'content/component/forms/forms.template.html'
   };
 
-  angular.module('employees').component('forms', FormsComponent); /*nazwa komponentu*/
+  angular.module('employees').component('forms', FormsComponent);
 }

@@ -15,5 +15,5 @@ module employees {
         templateUrl: 'content/component/timesheet/timesheet.template.html'
     };
 
-    angular.module('employees').component('timesheet', TimesheetComponent); /*nazwa komponentu*/
+    angular.module('employees').component('timesheet', TimesheetComponent);
 }

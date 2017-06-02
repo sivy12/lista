@@ -18,5 +18,5 @@ module employees {
 
     }
 
-    angular.module('employees').controller('ProjectCtrl', ProjectCtrl); /*nazwa kontrolera*/
+    angular.module('employees').controller('ProjectCtrl', ProjectCtrl);
 }

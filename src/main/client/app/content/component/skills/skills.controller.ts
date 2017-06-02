@@ -18,5 +18,5 @@ module employees {
 
     }
 
-    angular.module('employees').controller('SkillCtrl', SkillCtrl); /*nazwa kontrolera*/
+    angular.module('employees').controller('SkillCtrl', SkillCtrl);
 }

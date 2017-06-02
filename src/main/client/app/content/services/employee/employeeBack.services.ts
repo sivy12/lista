@@ -35,7 +35,6 @@ module employees {
                     method: 'GET'
                 }
             }).query({page:0}).$promise
-            // return this.getEmployeesCallback()
 
         };
 
@@ -48,7 +47,6 @@ module employees {
                     method: 'GET'
                 }
             }).query({}).$promise
-            // return this.getEmployeesCallback()
 
         };
 
@@ -61,7 +59,6 @@ module employees {
                     method: 'DELETE'
                 }
             }).query({}).$promise
-            // return this.getEmployeesCallback()
 
         };
 
@@ -76,7 +73,6 @@ module employees {
                     isArray: true
                 }
             }).query({}).$promise
-            // return this.getEmployeesCallback()
 
         };
 
@@ -89,7 +85,6 @@ module employees {
                     method: 'DELETE'
                 }
             }).query({}).$promise
-            // return this.getEmployeesCallback()
 
         };
 
@@ -112,38 +107,6 @@ module employees {
             }).query(employee).$promise;
         };
 
-
-
-
-
-
-
-        private getEmployeesCallback=():ng.IPromise<IPageResponseArgs<IEmployee>> =>{
-         let defer = this.$q.defer();
-         defer.resolve(
-                [
-                    {
-                        "id": 1,
-                        "name": "Damian",
-                        "lastname": "Rabczewski",
-                        "avatarFilePath": "../images/avatar.jpg"
-                    },
-                    {
-                        "id": 2,
-                        "name": "Maciej",
-                        "lastname": "Krzyk",
-                        "avatarFilePath": "../images/avatar2.jpg"
-                    },
-                    {
-                        "id": 3,
-                        "name": "Zbigniew",
-                        "lastname": "Religa",
-                        "avatarFilePath": "../images/avatar1.jpg"
-                    }
-                ]);
-            return defer.promise;
-
-        }
 
     }
 

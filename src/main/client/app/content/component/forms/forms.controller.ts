@@ -18,5 +18,5 @@ module employees {
 
   }
 
-  angular.module('employees').controller('FormsCtrl', FormsCtrl); /*nazwa kontrolera*/
+  angular.module('employees').controller('FormsCtrl', FormsCtrl);
 }

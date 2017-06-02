@@ -7,12 +7,9 @@ module employees {
     'use strict';
 
 
-    export class EmployeeDetailCtrl{
+    export class EmployeeDetailCtrl {
 
-        private names: string;
-        private lastname: string;
-        private avatarFilePath: string;
-        private position: string;
+        private employee: IEmployee;
         public onDeleteEmployee: ($event) => void;
         employeeId = this.$stateParams.id;
         private delete: boolean = false;
@@ -26,38 +23,37 @@ module employees {
         }
 
 
-        private getEmployeeDetailCallBack =(det:IEmployee) =>{
-            this.names=det.name;
-            this.lastname=det.lastname;
-            this.avatarFilePath=det.avatarFilePath;
-            this.position=det.position;
+        private getEmployeeDetailCallBack = (res: IEmployee) => {
+            this.employee = res;
         }
 
         private deleteEmployeeId() {
             this.delete = true;
-       if(this.delete == true){
-           this.EmployeeBackService.deleteEmployeeDetail(this.employeeId).then(this.getEmployeeDeleteCallBack);
+            if (this.delete == true) {
+                this.EmployeeBackService.deleteEmployeeDetail(this.employeeId).then(this.getEmployeeDeleteCallBack);
 
-       }
+            }
 
         };
 
 
-        private getEmployeeDeleteCallBack =(res:IEmployee) =>{
-            this.onDeleteEmployee({$event: angular.copy(this.employeeId)}); /*przypisanei dopeiro w callbacku,
-            po wywołaniu metody*/
+        private getEmployeeDeleteCallBack = (res: IEmployee) => {
+            this.onDeleteEmployee({$event: angular.copy(this.employeeId)});
+            /*przypisanei dopeiro w callbacku,
+             po wywołaniu metody*/
             this.delete = false;
             this.$state.go('access.userPage');
 
         }
 
-        private hideForm(zmienna){
+        private hideForm(zmienna) {
             this.formContainerVisible = zmienna;
         }
 
 
         /*variables for visible*/
         formContainerVisible = false;
+
         private formcontainer() {
             this.formContainerVisible = !this.formContainerVisible;
         };
@@ -65,5 +61,5 @@ module employees {
 
     }
 
-    angular.module('employees').controller('EmployeeDetailCtrl', EmployeeDetailCtrl); /*nazwa kontrolera*/
+    angular.module('employees').controller('EmployeeDetailCtrl', EmployeeDetailCtrl);
 }

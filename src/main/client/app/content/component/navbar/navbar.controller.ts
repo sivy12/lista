@@ -24,5 +24,4 @@ module employees {
   }
 
   angular.module('employees').controller('NavbarCtrl', NavbarCtrl);
-  /*nazwa kontrolera*/
 }

@@ -18,5 +18,5 @@ module employees {
 
     }
 
-    angular.module('employees').controller('TimesheetCtrl', TimesheetCtrl); /*nazwa kontrolera*/
+    angular.module('employees').controller('TimesheetCtrl', TimesheetCtrl);
 }

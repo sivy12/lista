@@ -8,10 +8,10 @@
 
 
             <i class="contact__fa fa fa-skype" aria-hidden="true"></i>
-            <label style="padding: 7px 10px 0 0;">{{con.contactType}}</label>
+            <label class="contact__padding">{{con.contactType}}</label>
 
             <div  layout="column">
-                <a class="contact__a" href="skype:sivy12_12?call">
+                <a class="contact__a" href="{{con.contactValue}}">
                     {{con.contactValue}}
                 </a>
 
@@ -26,8 +26,6 @@
                 <md-icon>add</md-icon>
             </md-button>
         </md-list-item>
-
-
 
 
     </md-card>
@@ -46,13 +44,12 @@
             </div>
             <div layout="column" flex="100">
                 <md-input-container class="md-block" flex-gt-sm>
-                <md-select style="color: black;" name="contactType" placeholder="Wybierz typ kontaktu" ng-model="contact.contact.contactType" required>
-                <md-option style="color: black;" value="SKYPE">SKYPE</md-option>
-                <md-option style="color: black;" value="EMAIL">EMAIL</md-option>
-                <md-option style="color: black;" value="PHONE_PRIVATE">PHONE_PRIVATE</md-option>
-                <md-option style="color: black;" value="PHONE_BUISNESS">PHONE_BUISNESS</md-option>
-                <md-option style="color: black;" value="SLACK">SLACK</md-option>
-                <md-option style="color: black;" value="ADDRESS">ADDRESS</md-option>
+                <md-select name="contactType" placeholder="Wybierz typ kontaktu" ng-model="contact.contact.contactType" required>
+                <md-option value="SKYPE">SKYPE</md-option>
+                <md-option value="EMAIL">EMAIL</md-option>
+                <md-option value="PHONE_PRIVATE">PHONE_PRIVATE</md-option>
+                <md-option value="SLACK">SLACK</md-option>
+                <md-option value="ADDRESS">ADDRESS</md-option>
                 </md-select>
                     <div ng-messages="contactForm.contactType.$error">
                     <div ng-message="required">Typ kontaktu jest wymagany.</div>
@@ -64,9 +61,6 @@
             <div layout="column" flex="100" ng-if="contact.hideId"> <!--wyswietlone id ale ukryte-->
                 <md-input-container>
                     <input required name="employeeId" ng-model="contact.employeeId" readonly>
-                    <!--<div ng-messages="contactForm.employeeId.$error">-->
-                        <!--<div ng-message="required">employeeId jest wymagany.</div>-->
-                    <!--</div>-->
                 </md-input-container>
             </div>
 

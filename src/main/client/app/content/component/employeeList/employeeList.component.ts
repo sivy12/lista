@@ -12,12 +12,11 @@ module employees {
         bindings: {
             onSelectEmployee: "&",
             newEmployee: '<',
-
         },
         controller: EmployeeListCtrl,
         controllerAs: 'list',
         templateUrl: 'content/component/employeeList/employeeList.template.html'
     };
 
-    angular.module('employees').component('employee', EmployeeListComponent); /*nazwa komponentu*/
+    angular.module('employees').component('employee', EmployeeListComponent);
 }

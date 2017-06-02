@@ -1,7 +1,7 @@
 <div class="employee__width">
 
-    <md-card class="employee__box" style="padding: 5px;">
-        <img style="margin-bottom: 10px;" src="{{detail.avatarFilePath}}" class="employee__avatar md-avatar" alt="ktos" />
+    <md-card class="employee__box">
+        <img src="{{detail.employee.avatarFilePath}}" class="employee__avatar md-avatar" alt="{{detail.employee.name}} avatar" />
 
         <div class="employee__login">
             <div class="employee__dot"></div>
@@ -14,31 +14,31 @@
         </div>
 
 
-        <div class="employee__detail" ng-click="null">
+        <div class="employee__detail">
             <div>
-                {{detail.names}}
+                {{detail.employee.name}}
             </div>
         </div>
         <md-divider></md-divider>
-        <div class="employee__detail" ng-click="null">
-            {{detail.lastname}}
+        <div class="employee__detail">
+            {{detail.employee.lastname}}
 
         </div>
         <md-divider></md-divider>
-        <div class="employee__detail" ng-click="null">
+        <div class="employee__detail">
             <div>
                 Pokój : 112
             </div>
         </div>
         <md-divider></md-divider>
-        <div class="employee__detail" ng-click="null">
+        <div class="employee__detail">
             <div>
-                Stanowisko : {{detail.position}}
+                Stanowisko : {{detail.employee.position}}
             </div>
         </div>
 
-        <div style="width: 100%; float: right;">
-            <md-button class="detail__btn" style=" float: right;" ng-click="detail.formcontainer()">
+        <div class="employee__btns">
+            <md-button class="detail__btn" ng-click="detail.formcontainer()">
                 <md-icon type="checkbox" class="detail__edit"></md-icon>
             </md-button>
 
