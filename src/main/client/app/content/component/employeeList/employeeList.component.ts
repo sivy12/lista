@@ -9,7 +9,11 @@ module employees {
     import IComponentController = angular.IComponentController;
 
     const EmployeeListComponent: ng.IComponentOptions = {
-        bindings: {},
+        bindings: {
+            onSelectEmployee: "&",
+            newEmployee: '<',
+
+        },
         controller: EmployeeListCtrl,
         controllerAs: 'list',
         templateUrl: 'content/component/employeeList/employeeList.template.html'

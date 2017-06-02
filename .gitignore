@@ -12,3 +12,5 @@
 /src/main/client/dist/
 /src/main/client/node/
 /src/main/resources/client/
+/src/main/client/.tscache/
+/src/main/client/*.tmp.txt

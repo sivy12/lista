@@ -1,21 +1,43 @@
+<!--dziecko tutaj chciałbym odebrać zmienną z bindingu-->
 <div class="employeeList__box md-whiteframe-z3">
     <md-content class="employeeList__content">
             <div class="employeeList__top">
                 <input style="background: white; border: none" type="text" class="form-control" ng-model="search" placeholder="Wyszukaj" />
             </div>
 
-            <md-icon class="employeeList__hide"  ng-click="zwin()">subdirectory_arrow_right</md-icon>
+            <md-icon class="employeeList__hide">subdirectory_arrow_right</md-icon>
         <md-list class="employee__list" flex>
 
+            <div ng-repeat="an in list.employees | filter: search">
+
+                <a href="#/access/page/pageDetail/{{an.id}}">
+                <md-list-item ng-click="list.selectEmployeeId(an.id)">
+                 <img src="{{an.avatarFilePath}}" class="md-avatar" alt="ktos" />
+                 <div>
+                     {{an.name}} {{an.lastname}}
 
 
-            <md-list-item ng-repeat="an in list.employees" ng-click="null">
-                <img src="{{an.avatarFilePath}}" class="md-avatar" alt="ktos" />
-                <div>
-                    {{an.name}} {{an.lastname}}
+                 </div>
 
-                </div>
-            </md-list-item>
+                </md-list-item>
+
+
+
+                </a>
+
+            </div>
+
+
+            <div ng-repeat="det in list.details">
+                {{det.id}}
+                {{det.contactType}}
+                {{det.contactValue}}
+            </div>
+
+            liczba stron : {{list.numer}}
+
+
+
         </md-list>
 
 

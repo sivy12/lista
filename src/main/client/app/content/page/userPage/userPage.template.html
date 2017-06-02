@@ -7,26 +7,14 @@
 
 
 <div class="userPage__list">
-    <employee></employee>
+    <employee on-select-employee="userCtr.wyswietlId($event)"
+              new-employee="userCtr.refreshEmployee"></employee>
+
 </div>
 
-<div class="userPage__content">
-    <div class="userPage">
-        <detail></detail>
+    <div ui-view></div>
 
-        <contact></contact>
 
-    </div>
 
-    <div class="userPage">
-        <project></project>
-
-        <skills></skills>
-    </div>
-
-    <div class="userPage">
-        <timesheet></timesheet>
-    </div>
-</div>
 
 </div>

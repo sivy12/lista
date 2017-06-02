@@ -1,0 +1,29 @@
+<div class="userPage__content">
+
+
+
+    <div class="userPage">
+
+        <detail on-delete-employee="detailCtr.takeRefreshList($event)"></detail>
+
+
+        <contact></contact>
+
+    </div>
+
+    <div class="userPage">
+        <project></project>
+
+        <skills></skills>
+    </div>
+
+    <div class="userPage">
+        <timesheet></timesheet>
+    </div>
+    <div class="userPage">
+        <div ng-repeat="an in detailCtr.details">
+            {{an.id}}
+        </div>
+    </div>
+
+</div>
