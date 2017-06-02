@@ -15,10 +15,13 @@ module employees {
         private delete: boolean = false;
 
         // @ngInject
-        constructor(private EmployeeBackService: IEmployeeBackService,
+        constructor(private $translatePartialLoader: ng.translate.ITranslatePartialLoaderService,
+                    private EmployeeBackService: IEmployeeBackService,
                     private $stateParams: ActorsStateParams,
                     private $state: ng.ui.IStateService) {
             this.EmployeeBackService.getEmployeeDetail(this.employeeId).then(this.getEmployeeDetailCallBack);
+            this.$translatePartialLoader.addPart('detail');
+            this.$translatePartialLoader.addPart('icons');
 
         }
 

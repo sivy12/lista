@@ -11,7 +11,8 @@ module employees {
         user: IUser = {};
 
         // @ngInject
-        constructor() {
+        constructor(private $translatePartialLoader: ng.translate.ITranslatePartialLoaderService) {
+            this.$translatePartialLoader.addPart('project');
 
 
         }

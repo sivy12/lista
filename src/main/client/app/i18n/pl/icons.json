@@ -1,0 +1,12 @@
+{
+  "icons": {
+    "close": "close",
+    "add": "add",
+    "back": "arrow_back",
+    "edit": "edit",
+    "done": "done",
+    "arrowRight": "subdirectory_arrow_right",
+    "local": "local_activity",
+    "msg": "message"
+  }
+}

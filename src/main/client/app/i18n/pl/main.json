@@ -1,5 +1,6 @@
 {
   "main": {
+    "appTitle": "eLista",
     "logoutMessage": "Czy jesteś pewien, że chcesz się wylogować?",
     "logoutConfirm": "Tak",
     "logoutCancel": "Nie",

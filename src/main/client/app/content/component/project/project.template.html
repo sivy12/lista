@@ -4,7 +4,7 @@
 
             <md-content>
                 <md-tabs md-dynamic-height md-border-bottom>
-                    <md-tab label="Aktualne">
+                    <md-tab label="{{ 'project.actual' | translate }}">
                         <md-content class="main__item">
 
                             <md-list-item ng-click="null">
@@ -20,7 +20,7 @@
 
                         </md-content>
                     </md-tab>
-                    <md-tab label="Archiwalne">
+                    <md-tab label="{{ 'project.archive' | translate }}">
                         <md-content class="md-padding">
 
                             <md-list-item ng-click="null">
@@ -38,19 +38,19 @@
             <form projectForm>
                 <div layout="column" flex="100">
                     <md-input-container flex="50">
-                        <label>Nazwa projektu</label>
-                        <input required name="clientName" ng-model="detail.employees[0].name">
-                        <div ng-messages="detailForm.clientName.$error">
-                            <div ng-message="required">Twój projekt jest wymagane.</div>
+                        <label translate="project.projectName"></label>
+                        <input required name="projekt">
+                        <div ng-messages="projectForm.projekt.$error">
+                            <div ng-message="required" translate="project.nameRequired"></div>
                         </div>
                     </md-input-container>
                 </div>
                 <div layout="column" flex="100">
                     <md-input-container flex="50">
-                        <label>Imię</label>
-                        <input required name="clientName" ng-model="detail.employees[0].name">
-                        <div ng-messages="detailForm.clientName.$error">
-                            <div ng-message="required">Twoje imię jest wymagane.</div>
+                        <label translate="project.choose"></label>
+                        <input required name="type" >
+                        <div ng-messages="projectForm.type.$error">
+                            <div ng-message="required" translate="project.typeRequired"></div>
                         </div>
                     </md-input-container>
                 </div>

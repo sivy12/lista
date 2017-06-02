@@ -11,8 +11,9 @@ module employees {
     user: IUser = {};
     inputContainerVisible = false;
     // @ngInject
-    constructor() {
-
+    constructor(private $translatePartialLoader: ng.translate.ITranslatePartialLoaderService) {
+      this.$translatePartialLoader.addPart('main');
+      this.$translatePartialLoader.addPart('icons');
 
     }
 

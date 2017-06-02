@@ -5,13 +5,10 @@
 
         <div class="employee__login">
             <div class="employee__dot"></div>
-
-            <span  class="employee__status md-subhead">Zalogowany</span>
+            <span  class="employee__status md-subhead" translate="detail.available"></span>
         </div>
 
-        <div class="employee__trig">
-
-        </div>
+        <div class="employee__trig"></div>
 
 
         <div class="employee__detail">
@@ -27,26 +24,24 @@
         <md-divider></md-divider>
         <div class="employee__detail">
             <div>
-                Pokój : 112
+                <div class="detail__place" translate="detail.place"></div> : 112
             </div>
         </div>
         <md-divider></md-divider>
         <div class="employee__detail">
             <div>
-                Stanowisko : {{detail.employee.position}}
+                <div class="detail__place" translate="detail.position"></div> : {{detail.employee.position}}
             </div>
         </div>
 
         <div class="employee__btns">
             <md-button class="detail__btn" ng-click="detail.formcontainer()">
-                <md-icon type="checkbox" class="detail__edit"></md-icon>
+                <md-icon type="checkbox" class="detail__edit" translate="icons.edit"></md-icon>
             </md-button>
 
             <md-button>
-                <md-icon ng-click="detail.deleteEmployeeId()">close</md-icon>
+                <md-icon ng-click="detail.deleteEmployeeId()" translate="icons.close"></md-icon>
             </md-button>
-
-
 
 
         </div>
@@ -56,7 +51,6 @@
             <div class="detail__form">
             <detail-form on-edit="detail.hideForm($event)"></detail-form>
             </div>
-
 
         </div>
 

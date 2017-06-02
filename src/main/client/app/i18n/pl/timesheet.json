@@ -1,0 +1,9 @@
+{
+  "time": {
+    "timeTitle": "Czas pracy",
+    "date": "Data",
+    "fromTime": "Praca od",
+    "toTime": "Praca do",
+    "where": "Gdzie"
+  }
+}

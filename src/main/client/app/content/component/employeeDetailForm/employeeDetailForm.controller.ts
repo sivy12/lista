@@ -19,11 +19,14 @@ module employees {
 
 
         // @ngInject
-        constructor(private EmployeeBackService: IEmployeeBackService,
+        constructor(private $translatePartialLoader: ng.translate.ITranslatePartialLoaderService,
+                    private EmployeeBackService: IEmployeeBackService,
                     private $stateParams: ActorsStateParams,
                     private $state: ng.ui.IStateService,
                     private $timeout: ng.ITimeoutService) {
             this.init(this.update);
+            this.$translatePartialLoader.addPart('detail');
+            this.$translatePartialLoader.addPart('icons');
 
         }
 

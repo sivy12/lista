@@ -3,20 +3,17 @@
 
     <md-card class="timesheet__overflow" >
 
-        <div class="timesheet__title header__main md-headline">Czas pracy</div>
+        <div class="timesheet__title header__main md-headline">
+            <label translate="time.timeTitle"></label>
+        </div>
         <div class="md-card-header timesheet__top">
-            <div class="timesheet__text">
-                Data
-            </div>
-            <div class="timesheet__text">
-                Praca od
-            </div>
-            <div class="timesheet__text">
-                Praca do
-            </div>
-            <div class="timesheet__text">
-                Gdzie
-            </div>
+            <div class="timesheet__text" translate="time.date"></div>
+
+            <div class="timesheet__text" translate="time.fromTime"></div>
+
+            <div class="timesheet__text" translate="time.toTime"></div>
+
+            <div class="timesheet__text" translate="time.where"></div>
         </div>
         <div class="timesheet__content">
             <div class="timesheet__item"  ng-click="null">

@@ -1,0 +1,10 @@
+{
+  "project": {
+    "actual": "Aktualne",
+    "archive": "Archiwalne",
+    "projectName": "Nazwa projektu",
+    "nameRequired": "Twój projekt jest wymagane.",
+    "typeRequired": "Typ projektu jest wymagany",
+    "choose": "Wybierz rodzaj"
+  }
+}

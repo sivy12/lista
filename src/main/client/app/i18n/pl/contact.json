@@ -1,0 +1,10 @@
+{
+  "contact": {
+    "dataTitle": "Dane kontaktowe",
+    "addContact": "Dodaj kontakt",
+    "choose": "Wybierz typ kontaktu",
+    "valueRequired": "Wartośc kontaktu jest wymagana.",
+    "typeRequired": "Typ kontaktu jest wymagany.",
+    "typeContact": "Wybierz typ kontaktu"
+  }
+}

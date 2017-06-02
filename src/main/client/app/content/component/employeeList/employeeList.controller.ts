@@ -16,8 +16,12 @@ module employees {
         private newEmployee: boolean;
 
         // @ngInject
-        constructor(private EmployeeBackService: IEmployeeBackService) {
+        constructor(private $translatePartialLoader: ng.translate.ITranslatePartialLoaderService,
+                    private EmployeeBackService: IEmployeeBackService) {
             this.init();
+            this.$translatePartialLoader.addPart('icons');
+            this.$translatePartialLoader.addPart('search');
+
         }
 
         /*to chcę wywoływać za każdym przekazaniem true*/

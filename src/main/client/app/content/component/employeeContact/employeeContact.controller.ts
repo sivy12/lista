@@ -15,12 +15,16 @@ module employees {
 
 
         // @ngInject
-        constructor(private EmployeeBackService: IEmployeeBackService,
+        constructor(private $translatePartialLoader: ng.translate.ITranslatePartialLoaderService,
+                    private EmployeeBackService: IEmployeeBackService,
                     private $stateParams: ActorsStateParams
                     //private JQueryUtilsService: IJQueryUtilsService,
                     //private $translate: ITranslateService,
         ) {
             this.init(this.newContact);
+            this.$translatePartialLoader.addPart('contact');
+            this.$translatePartialLoader.addPart('icons');
+
 
         }
 
