@@ -21,18 +21,15 @@ module employees {
                     //private JQueryUtilsService: IJQueryUtilsService,
                     //private $translate: ITranslateService,
         ) {
-            this.init(this.newContact);
+            this.init();
             this.$translatePartialLoader.addPart('contact');
             this.$translatePartialLoader.addPart('icons');
 
 
         }
 
-        private init(newContact: boolean) {
-            if (newContact == true) {
+        private init() {
                 this.EmployeeBackService.getContacts(this.employeeId).then(this.getContactCallBack);
-                this.newContact = false;
-            }
         }
 
         /*jeżeli przyjmuje tablice musze ja zadeklarowac w servisie oraz res oznacza to ze bierze całą tablicę*/
@@ -49,7 +46,7 @@ module employees {
 
         private contactDeleteCallBack = (res: IEmployee) => {
             this.newContact = true;
-            this.init(this.newContact);
+            this.init();
         };
 
         /*save*/
@@ -57,15 +54,13 @@ module employees {
         private saveContact = () => {
             if (this.contact != null) {
                 this.EmployeeBackService.saveContact(this.employeeId, this.contact).then(this.saveContactCallBack);
-            } else {
-                // this.formContainerVisible = false; moge wstecz kontaktow zrobić na 1 guziku zrobic
             }
         };
 
         private saveContactCallBack = (response) => {
             this.formContainerVisible = false;
             this.newContact = true;
-            this.init(this.newContact);
+            this.init();
             this.contact.contactValue = defaultStatus;
             this.contact.contactType = defaultStatus;
         };

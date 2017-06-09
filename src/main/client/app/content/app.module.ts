@@ -8,10 +8,11 @@
 /// <reference path="types/realizationTypes.type.ts" />
 /// <reference path="types/orderTypes.type.ts" />
 
-/// <reference path="enums/actorType.enum.ts" />
 /// <reference path="enums/dictionaryTypes.enum.ts" />
 /// <reference path="enums/permission.enum.ts" />
 /// <reference path="enums/dropdownType.enum.ts" />
+/// <reference path="component/grid/enums/tableType.enum.ts" />
+
 
 /// <reference path="interfaces/array.d.ts" />
 /// <reference path="interfaces/angular-block-ui.d.ts" />
@@ -25,7 +26,10 @@
 /// <reference path="interfaces/entry.interface.ts" />
 /// <reference path="interfaces/pageResponse.interface.ts" />
 /// <reference path="interfaces/pageResponseArgs.interfaces.ts" />
-/// <reference path="interfaces/token.interface.ts" />
+/// <reference path="component/grid/interfaces/query.interface.ts" />
+/// <reference path="component/grid/interfaces/sortModelElement.interface.ts" />
+/// <reference path="component/grid/interfaces/tableParameters.interface.ts" />
+/// <reference path="component/grid/types/sortDirection.type.ts" />>
 
 /// <reference path="../../app/content/services/errors/error.service.ts" />
 /// <reference path="../../app/content/services/data.service.ts" />
@@ -62,7 +66,8 @@ module employees {
     'pascalprecht.translate',
     'LocalStorageModule',
     'angularMoment',
-    'agGrid'
+    'agGrid',
+    'infinite-scroll'
   ]);
 }
 module employees {
@@ -94,6 +99,7 @@ module employees {
     'pascalprecht.translate',
     'LocalStorageModule',
     'angularMoment',
-    'agGrid'
+    'agGrid',
+    'infinite-scroll'
   ]);
 }

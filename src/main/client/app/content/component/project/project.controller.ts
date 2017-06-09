@@ -13,9 +13,17 @@ module employees {
         // @ngInject
         constructor(private $translatePartialLoader: ng.translate.ITranslatePartialLoaderService) {
             this.$translatePartialLoader.addPart('project');
+            this.$translatePartialLoader.addPart('icons');
 
 
         }
+
+
+        formContainerVisible = false;
+
+        private formContainer() {
+            this.formContainerVisible = !this.formContainerVisible;
+        };
 
     }
 

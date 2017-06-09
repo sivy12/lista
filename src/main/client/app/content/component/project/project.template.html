@@ -1,41 +1,78 @@
 <div class="project__box">
 
-    <md-card>
+    <md-card class="project__relative">
 
-            <md-content>
+            <md-content class="project__view">
                 <md-tabs md-dynamic-height md-border-bottom>
-                    <md-tab label="{{ 'project.actual' | translate }}">
-                        <md-content class="main__item">
+                    <md-tab class="project__more" label="{{ 'project.actual' | translate }}">
+                        <md-content class="project__white">
 
-                            <md-list-item ng-click="null">
-                                <div layout="column">
-                                    Projekt Relion
+                            <md-list-item  class="main__item project__item" ng-click="null">
+                                <div layout="column" translate="project.mockProject">
                                 </div>
                             </md-list-item>
-                            <md-list-item ng-click="null">
-                                <div class="md-list-item-text" layout="column">
-                                    Projekt employees
+
+
+                            <md-list-item  class="main__item project__item" ng-click="null">
+                                <div layout="column" translate="project.mockProject">
                                 </div>
                             </md-list-item>
+
+
+                            <md-list-item  class="main__item project__item" ng-click="null">
+                                <div layout="column" translate="project.mockProject">
+                                </div>
+                            </md-list-item>
+
+
+                            <md-list-item  class="main__item project__item" ng-click="null">
+                                <div layout="column" translate="project.mockProject">
+                                </div>
+                            </md-list-item>
+
+
+                            <md-list-item  class="main__item project__item" ng-click="null">
+                                <div layout="column" translate="project.mockProject">
+                                </div>
+                            </md-list-item>
+
+
+                            <md-list-item  class="main__item project__item" ng-click="null">
+                                <div layout="column" translate="project.mockProject">
+                                </div>
+                            </md-list-item>
+
+
+                            <md-list-item  class="main__item project__item" ng-click="null">
+                                <div layout="column" translate="project.mockProject">
+                                </div>
+                            </md-list-item>
+
 
                         </md-content>
                     </md-tab>
                     <md-tab label="{{ 'project.archive' | translate }}">
-                        <md-content class="md-padding">
+                        <md-content class="md-padding project__white">
 
-                            <md-list-item ng-click="null">
-                                <div style="color: lightgray;" class="md-list-item-text" layout="column">
-                                    Projekt Relion
+
+                            <md-list-item  class="main__item project__item" ng-click="null">
+                                <div class="project__noactiv" layout="column" translate="project.mockProject">
                                 </div>
                             </md-list-item>
 
                         </md-content>
                     </md-tab>
                 </md-tabs>
+                <md-button ng-click="projectCtr.formContainer()" class="project__btn">
+                    <md-icon translate="icons.edit"></md-icon>
+                </md-button>
             </md-content>
 
-        <div ng-if="detail.formContainerVisible">
-            <form projectForm>
+        <div ng-if="projectCtr.formContainerVisible">
+            <form name="projectForm" class="project__form" novalidate>
+
+                <div class="header__main" translate="project.addProject"></div>
+
                 <div layout="column" flex="100">
                     <md-input-container flex="50">
                         <label translate="project.projectName"></label>
@@ -45,15 +82,23 @@
                         </div>
                     </md-input-container>
                 </div>
+
                 <div layout="column" flex="100">
-                    <md-input-container flex="50">
-                        <label translate="project.choose"></label>
-                        <input required name="type" >
-                        <div ng-messages="projectForm.type.$error">
-                            <div ng-message="required" translate="project.typeRequired"></div>
+                    <md-input-container class="md-block" flex-gt-sm>
+                        <md-select name="contactType" placeholder="{{ 'project.choose' | translate }}" ng-model="contact.contact.contactType" required>
+                            <md-option value="Aktualne">Aktualne</md-option>
+                            <md-option value="Archiwalne">Archiwalne</md-option>
+                        </md-select>
+                        <div ng-messages="contactForm.contactType.$error">
+                            <div ng-message="required" translate="contact.typeRequired"></div>
                         </div>
                     </md-input-container>
                 </div>
+
+                <md-button type="submit" ng-click="projectCtr.formContainer()" class="project__btn">
+                    <md-icon translate="icons.add"></md-icon>
+                </md-button>
+
             </form>
         </div>
 

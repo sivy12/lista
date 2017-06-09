@@ -14,23 +14,33 @@ module employees {
         public onSelectEmployee: ($event) => void;
         public newList: boolean = true;
         private newEmployee: boolean;
+        private pageNumber: number = 0;
+        public actorType = EActorType.EMPLOYEE;
 
         // @ngInject
         constructor(private $translatePartialLoader: ng.translate.ITranslatePartialLoaderService,
                     private EmployeeBackService: IEmployeeBackService) {
-            this.init();
             this.$translatePartialLoader.addPart('icons');
             this.$translatePartialLoader.addPart('search');
 
+        }
+        public onScroll() {
+            console.log(this.pageNumber);
+            this.pageNumber++;
+            console.log(this.pageNumber);
+            this.newList = true;
+            this.init();
         }
 
         /*to chcę wywoływać za każdym przekazaniem true*/
         private init() {
             if (this.newList == true) {
-                this.EmployeeBackService.getEmployee().then(this.getEmpoloyeeCallBack);
+                this.EmployeeBackService.getEmployee(this.pageNumber).then(this.getEmpoloyeeCallBack);
                 this.newList = false;
             }
         }
+
+
 
         public $onChanges(changesObj) {
             /*przy zmianie onChange wyłapuje co się zmienia w current value jest nowa wartość*/

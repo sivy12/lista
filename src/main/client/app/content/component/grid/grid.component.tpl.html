@@ -1,0 +1,110 @@
+<md-card class="m-t-0">
+  <md-card-header class="md-card-header md-card">
+    <div class="col-md-7 p-l-0 p-r-0">
+      <md-card-title ng-if="ctrl.actorType == ctrl.actorTypes.ORDER" class="md-card-title">
+        {{'myOrders.myOrders' |
+        translate}}
+      </md-card-title>
+      <md-card-title ng-if="ctrl.actorType == ctrl.actorTypes.JUXTAPOSITIONS"
+                     class="md-card-title">{{'juxtaposition.juxtapositions' | translate}}
+      </md-card-title>
+      <md-card-title ng-if="ctrl.actorType == ctrl.actorTypes.DOCK_RECEPTION" class="md-card-title">
+        {{'dockFlow.title' |
+        translate}}
+      </md-card-title>
+    </div>
+    <div class="col-md-5 right  p-l-0 p-r-0">
+
+      <button class="icon-button fa fa-plus dropdown-toggle" type="button" id="addJuxtaposition"
+              ng-if="(ctrl.actorType == ctrl.actorTypes.JUXTAPOSITIONS) || ( ctrl.actorType == ctrl.actorTypes.DOCK_RECEPTION)"
+              ng-click="ctrl.add()">
+      </button>
+
+      <md-menu md-position-mode="target-right bottom"
+               ng-if="ctrl.actorType == ctrl.actorTypes.ORDER" id="addOrderMenu">
+        <button class="icon-button fa fa-plus dropdown-toggle" type="button" id="addOrder"
+                ng-click="$mdOpenMenu($event)">
+        </button>
+        <md-menu-content width="3">
+          <md-menu-item>
+              <md-button id="addScan" ng-click="ctrl.add(ctrl.EOrderType.SCAN)">
+              <span translate="main.addScan"></span>
+            </md-button>
+          </md-menu-item>
+          <md-menu-item>
+              <md-button id="addOriginal" ng-click="ctrl.add(ctrl.EOrderType.ORIGINAL)">
+              <span translate="main.addOriginal"></span>
+            </md-button>
+          </md-menu-item>
+        </md-menu-content>
+      </md-menu>
+
+      <button class="icon-button fa fa-search" ng-click="ctrl.runSearchModal()"
+              ng-if="ctrl.actorType == 'ORDER'"
+              data-target=".bs-example-modal-sm"></button>
+      <button class="icon-button fa fa-search" ng-click="ctrl.runDockSearch()"
+              ng-if="ctrl.actorType == 'DOCK_RECEPTION'"
+              data-target=".bs-example-modal-sm"></button>
+      <button class="icon-button fa fa-expand"
+              ng-if="(ctrl.selectedTableType === ctrl.tableTypes.SIMPLE) && ((ctrl.actorType === ctrl.actorTypes.DOCK_RECEPTION)||(ctrl.actorType === ctrl.actorTypes.ORDER))"
+              ng-click="ctrl.setTableType(ctrl.tableTypes.ADVANCED)"></button>
+      <button class="icon-button fa fa-compress"
+              ng-if="(ctrl.selectedTableType === ctrl.tableTypes.ADVANCED) && ((ctrl.actorType === ctrl.actorTypes.DOCK_RECEPTION)||(ctrl.actorType === ctrl.actorTypes.ORDER))"
+              ng-click="ctrl.setTableType(ctrl.tableTypes.SIMPLE)"></button>
+    </div>
+  </md-card-header>
+
+  <div ng-if="ctrl.gridOptions != null">
+
+    <md-content flex="">
+      <div layout="column"
+           ng-class="ctrl.selectedTableType === ctrl.tableTypes.ADVANCED ? 'advanced-view' : 'simple-view'">
+        <div id="grid"
+             ag-grid="ctrl.gridOptions"
+             class="ag-fresh grid-height"></div>
+      </div>
+    </md-content>
+
+    <md-sidenav class="md-sidenav-right" md-component-id="ctrl.sideNavId"
+                eval-attr-as-expr="mdComponentId"
+                md-disable-backdrop="" md-whiteframe="4">
+      <md-toolbar class="md-theme-indigo">
+        <div class="row md-toolbar-tools">
+          <div class="col-md-6 text-left">
+            <span translate="main.parameters"></span>
+          </div>
+
+          <div class="col-md-6 text-right">
+
+            <button class="btn-sidenav button-sidebar" data-toggle="dropdown"
+                    aria-expanded="false">
+              <i class="fa fa-ellipsis-v" title="" aria-hidden="true"></i>
+            </button>
+            <ul class="dropdown-menu dropdown-menu-scale pull-right top">
+              <li class="dropdown-menu-header">{{'main.tableOptions' | translate}}</li>
+              <li><a href="" ng-click="ctrl.saveColumnsStates()">{{'main.save' | translate}}</a>
+              </li>
+              <li><a href="" ng-click="ctrl.clearColumnsStates()">{{'main.default' |
+                translate}}</a>
+              </li>
+            </ul>
+            <button class="btn-sidenav button-sidebar" ng-click="ctrl.toggleMenu()">
+              <i class="fa fa-times fa-1x" aria-hidden="true"></i>
+            </button>
+          </div>
+        </div>
+      </md-toolbar>
+
+      <md-content layout-margin="">
+        <div ng-repeat="column in ctrl.menuColumns">
+          <md-checkbox ng-checked="!column.hide" aria-label="Checkbox No Ink"
+                       ng-click="ctrl.toggleColumnVisibility(column.colId)">
+            {{column.colId | translate}}
+          </md-checkbox>
+        </div>
+      </md-content>
+
+    </md-sidenav>
+
+  </div>
+</md-card>

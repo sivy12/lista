@@ -4,7 +4,7 @@ module employees {
     'use strict';
 
     export interface IEmployeeBackService {
-        getEmployee(): ng.IHttpPromise<IPageResponseArgs<IEmployee>>;
+        getEmployee(pageNumber: number): ng.IHttpPromise<IPageResponseArgs<IEmployee>>;
         getEmployeeDetail(employeeId: number): ng.IHttpPromise<IEmployee>;
         deleteEmployeeDetail (id: number): ng.IHttpPromise<IEmployee>;
         getContacts (id: number): ng.IHttpPromise<Array<IContact>>;
@@ -29,12 +29,14 @@ module employees {
 
         }
 
-        public getEmployee = (): ng.IHttpPromise<IPageResponseArgs<IEmployee>> => {
-            return this.$resource(`${this.ConfigService.getHost()}/employee/?`, {}, {
+        public getEmployee = (pageNumber: number): ng.IHttpPromise<IPageResponseArgs<IEmployee>> => {
+            return this.$resource(`${this.ConfigService.getHost()}/employee/?`, {
+                pageNumber: pageNumber,
+            }, {
                 'query': {
                     method: 'GET'
                 }
-            }).query({page:0}).$promise
+            }).query({page:pageNumber}).$promise
 
         };
 

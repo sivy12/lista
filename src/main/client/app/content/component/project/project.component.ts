@@ -11,7 +11,7 @@ module employees {
     const ProjectComponent: ng.IComponentOptions = {
         bindings: {},
         controller: ProjectCtrl,
-        controllerAs: 'project',
+        controllerAs: 'projectCtr',
         templateUrl: 'content/component/project/project.template.html'
     };
 

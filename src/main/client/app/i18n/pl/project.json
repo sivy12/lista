@@ -3,8 +3,10 @@
     "actual": "Aktualne",
     "archive": "Archiwalne",
     "projectName": "Nazwa projektu",
-    "nameRequired": "Twój projekt jest wymagane.",
+    "nameRequired": "Twój projekt jest wymagany.",
     "typeRequired": "Typ projektu jest wymagany",
-    "choose": "Wybierz rodzaj"
+    "choose": "Wybierz rodzaj",
+    "addProject": "Dodaj projekt: ",
+    "mockProject": "Projekt Relyon"
   }
 }

@@ -12,7 +12,6 @@ module employees {
         private employee: IEmployee;
         public onDeleteEmployee: ($event) => void;
         employeeId = this.$stateParams.id;
-        private delete: boolean = false;
 
         // @ngInject
         constructor(private $translatePartialLoader: ng.translate.ITranslatePartialLoaderService,
@@ -31,12 +30,7 @@ module employees {
         }
 
         private deleteEmployeeId() {
-            this.delete = true;
-            if (this.delete == true) {
                 this.EmployeeBackService.deleteEmployeeDetail(this.employeeId).then(this.getEmployeeDeleteCallBack);
-
-            }
-
         };
 
 
@@ -44,7 +38,6 @@ module employees {
             this.onDeleteEmployee({$event: angular.copy(this.employeeId)});
             /*przypisanei dopeiro w callbacku,
              po wywołaniu metody*/
-            this.delete = false;
             this.$state.go('access.userPage');
 
         }
