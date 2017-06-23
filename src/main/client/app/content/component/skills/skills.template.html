@@ -8,10 +8,16 @@
         </div>
         <div ng-repeat="skills in skillCtr.skillsArray" class="skills__content">
             <div class="skills__item main__item"  ng-click="null">
-                <div class="md-list-item-text" layout="column">
+                <div class="md-list-item-text skills__skillName" layout="column">
                     {{skills.skillName}}
                 </div>
-                <md-icon class="skills__btn" ng-click="skillCtr.deleteSkillsId(skills.id)" translate="icons.close"></md-icon>
+                <div class="skills__desc">
+                    {{skills.description}}
+
+                </div>
+                <md-icon class="skills__btn"
+                         ng-click="skillCtr.deleteSkillsId(skills.id)"
+                         translate="icons.close"></md-icon>
             </div>
             <md-divider></md-divider>
 
@@ -26,36 +32,51 @@
     </md-card>
 
     <div ng-if="skillCtr.formContainerVisible" class="contact__form">
-        <form name="contactForm" novalidate>
+        <form name="skillsForm" novalidate>
             <div class="header__main">
-                <label translate="contact.addContact"></label>
+                <label translate="skills.addSkills"></label>
             </div>
 
             <div layout="column" flex="100">
                 <md-input-container>
-                    <input required name="contactValue" ng-model="contact.contact.contactValue">
-                    <div ng-messages="contactForm.contactValue.$error">
-                        <div ng-message="required" translate="contact.valueRequired"></div>
+                    <input required name="skillName"
+                           placeholder="{{'skills.skillTitle' | translate}}"
+                           ng-model="skillCtr.addNewSkill.skillName"
+                           ng-keyup="skillCtr.registerKeyPress()">
+                    <div ng-messages="skillsForm.skillName.$error">
+                        <div ng-message="required"
+                             translate="skills.skillNameRequired"></div>
                     </div>
                 </md-input-container>
+                <div ng-repeat="(key,value) in skillCtr.skillsByName">
+                    {{value}}
+                </div>
             </div>
 
             <!--Do zrobienia lista enumów z backendu, wtedy trzeba podpiąć-->
             <div layout="column" flex="100">
                 <md-input-container class="md-block" flex-gt-sm>
-                    <md-select name="contactType" placeholder="{{ 'contact.typeContact' | translate }}" ng-model="contact.contact.contactType" required>
-                        <md-option ng-repeat="(key, value) in contact.contactType.contact" value="{{key}}">{{key}}</md-option>
-                    </md-select>
-                    <div ng-messages="contactForm.contactType.$error">
-                        <div ng-message="required" translate="contact.typeRequired"></div>
+                    <input name="discription"
+                           placeholder="{{'skills.skillDescription' | translate}}"
+                           required
+                           ng-pattern=""
+                           md-maxlength="30"
+                           ng-model="skillCtr.addNewSkill.description">
+
+                    <div ng-messages="skillsForm.discription.$error">
+                        <div ng-message="required"
+                             translate="skills.descriptionRequired"></div>
+
+                        <div ng-message="md-maxlength"
+                             translate="skills.descriptionMaxLength"
+                             class="my-message"></div>
                     </div>
                 </md-input-container>
             </div>
 
-
-            <div layout="column" flex="100" ng-if="contact.hideId"> <!--wyswietlone id ale ukryte-->
+            <div layout="column" flex="100" ng-if="skillCtr.hideId"> <!--wyswietlone id ale ukryte-->
                 <md-input-container>
-                    <input required name="employeeId" ng-model="contact.employeeId" readonly>
+                    <input required name="employeeId" ng-model="skillCtr.employeeId" readonly>
                 </md-input-container>
             </div>
 
@@ -63,7 +84,7 @@
                 <md-button class="contact__back" ng-click="skillCtr.back()" type="submit">
                     <md-icon translate="icons.back"></md-icon>
                 </md-button>
-                <md-button class="contact__done" ng-click="skillCtr.saveContact()" type="submit">
+                <md-button class="contact__done" ng-click="skillCtr.saveSkills()" type="submit">
                     <md-icon translate="icons.add"></md-icon>
                 </md-button>
             </div>

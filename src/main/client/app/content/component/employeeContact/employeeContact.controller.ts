@@ -11,7 +11,6 @@ module employees {
         details: Array<IContact>;
         employeeId = this.$stateParams.id;
         contact: IContact;
-        private newContact: boolean = true;
         contactType: IContactArrayBase<IContactType>;
 
 
@@ -68,7 +67,6 @@ module employees {
 
         private saveContactCallBack = (response) => {
             this.formContainerVisible = false;
-            this.newContact = true;
             this.init();
             this.contact.contactValue = defaultStatus;
             this.contact.contactType = defaultStatus;

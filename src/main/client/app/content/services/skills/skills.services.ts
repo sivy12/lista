@@ -6,8 +6,10 @@ module employees {
     export interface ISkillsService {
         getSkills (id: number): ng.IHttpPromise<Array<ISkills>>;
         deleteSkills (id: number, idSkills: number): ng.IHttpPromise<ISkills>;
-        //saveContact(id: number, contact: IContact): ng.IHttpPromise<IContact>;
+        saveSkills(id: number, skill: ISkills): ng.IHttpPromise<ISkills>;
         //getContactsType (): ng.IHttpPromise<IContactArrayBase<IContactType>>;
+        getSkillsByName (skillPart: string): ng.IHttpPromise<Array<ISkillsFindByName>>;
+
     }
     /*obiekt*/
 
@@ -26,6 +28,17 @@ module employees {
         public getSkills (id: number): ng.IHttpPromise<Array<ISkills>> {
             return this.$resource(`${this.ConfigService.getHost()}/employee/:id/skills`, {
                 id: id,
+            }, {
+                'query': {
+                    method: 'GET',
+                    isArray: true
+                }
+            }).query({}).$promise
+
+        };
+        public getSkillsByName (skillPart: string): ng.IHttpPromise<Array<ISkillsFindByName>> {
+            return this.$resource(`${this.ConfigService.getHost()}/employee/skills/:skillPart`, {
+                skillPart: skillPart,
             }, {
                 'query': {
                     method: 'GET',
@@ -55,16 +68,16 @@ module employees {
             }).query({}).$promise
 
         };
-        //
-        // public saveContact(id: number, contact: IContact): ng.IHttpPromise<IContact> {
-        //     return this.$resource(`${this.ConfigService.getHost()}/employee/:id/contacts`, {
-        //         id: id,
-        //     }, {
-        //         'query': {
-        //             method: 'POST'
-        //         }
-        //     }).query(contact).$promise;
-        // };
+
+        public saveSkills(id: number, skill: ISkills): ng.IHttpPromise<ISkills> {
+            return this.$resource(`${this.ConfigService.getHost()}/employee/:id/skills`, {
+                id: id,
+            }, {
+                'query': {
+                    method: 'POST'
+                }
+            }).query(skill).$promise;
+        };
 
 
     }

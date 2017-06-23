@@ -1,5 +1,11 @@
 {
   "skills": {
-    "skillTitle": "Umiejętności"
+    "skillTitle": "Umiejętności",
+    "skillNameRequired": "Podanie umiejętności jest wymagane.",
+    "descriptionRequired": "Opis umiejętności jest wymagany.",
+    "descriptionMaxLength": "Podałeś złą liczbę znaków",
+    "addSkills": "Dodaj umiejętność",
+    "skillDescription": "Opis umiejętności"
+
   }
 }

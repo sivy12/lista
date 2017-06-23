@@ -3,11 +3,9 @@
 module employees {
     'use strict';
 
-    export interface ISkills {
+    export interface ISkillsFindByName {
         id: number;
         skillName: string;
-        description: string;
-        employeeId: number;
     }
 
 }

@@ -10,6 +10,9 @@ module employees {
 
         employeeId = this.$stateParams.id;
         skillsArray: Array<ISkills>;
+        skillsByName: Array<ISkillsFindByName> = [];
+        addNewSkill: ISkills;
+
 
 
         // @ngInject
@@ -29,6 +32,7 @@ module employees {
         private getSkillsCallBack = (res: Array<ISkills>) => {
             this.skillsArray = res;
         };
+
         private deleteSkillsId(skillId: number) {
             this.SkillsService.deleteSkills(this.employeeId, skillId).then(this.deleteSkillsCallBack);
 
@@ -36,6 +40,30 @@ module employees {
 
         private deleteSkillsCallBack = (res: IEmployee) => {
             this.init();
+        };
+
+        private saveSkills = () => {
+            if (this.addNewSkill != null) {
+                this.SkillsService.saveSkills(this.employeeId, this.addNewSkill).then(this.saveSkillCallBack);
+            }
+        };
+
+        private saveSkillCallBack = (response) => {
+            this.formContainerVisible = false;
+            this.init();
+            this.addNewSkill.skillName = defaultStatus;
+            this.addNewSkill.description = defaultStatus;
+        };
+
+        private variableFindSkillByName: string;
+
+        private registerKeyPress(){
+            this.SkillsService.getSkillsByName(this.addNewSkill.skillName).then(this.getSkillsByNameCallBack);
+            console.log(this.variableFindSkillByName);
+        }
+
+        private getSkillsByNameCallBack = (res: Array<ISkillsFindByName>) => {
+            this.skillsByName = res;
         };
 
         private back() {

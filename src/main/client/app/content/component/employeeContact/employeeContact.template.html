@@ -15,18 +15,23 @@
             <label class="contact__padding">{{con.contactType}}</label>
 
             <div  layout="column">
-                <a class="contact__a" href="mailto:{{con.contactValue}}">
+                <a class="contact__a"
+                   href="mailto:{{con.contactValue}}">
                     {{con.contactValue}}
                 </a>
             </div>
 
-            <md-icon class="contact__delete" ng-click="contact.deleteContactId(con.id)" translate="icons.close"></md-icon>
+            <md-icon class="contact__delete"
+                     ng-click="contact.deleteContactId(con.id)"
+                     translate="icons.close"></md-icon>
         </md-list-item>
         <md-divider></md-divider>
         </div>
 
         <md-list-item>
-            <md-button class="contact__done" ng-click="contact.formcontainer()" type="submit">
+            <md-button class="contact__done"
+                       ng-click="contact.formcontainer()"
+                       type="submit">
                 <md-icon translate="icons.add"></md-icon>
             </md-button>
         </md-list-item>
@@ -34,7 +39,8 @@
 
     </md-card>
 
-    <div ng-if="contact.formContainerVisible" class="contact__form">
+    <div ng-if="contact.formContainerVisible"
+         class="contact__form">
         <form name="contactForm" novalidate>
             <div class="header__main">
             <label translate="contact.addContact"></label>
@@ -42,9 +48,12 @@
 
             <div layout="column" flex="100">
                 <md-input-container>
-                    <input required name="contactValue" ng-model="contact.contact.contactValue">
+                    <input required name="contactValue"
+                           ng-model="contact.contact.contactValue">
+
                     <div ng-messages="contactForm.contactValue.$error">
-                        <div ng-message="required" translate="contact.valueRequired"></div>
+                        <div ng-message="required"
+                             translate="contact.valueRequired"></div>
                     </div>
                 </md-input-container>
             </div>
@@ -52,11 +61,18 @@
             <!--Do zrobienia lista enumów z backendu, wtedy trzeba podpiąć-->
             <div layout="column" flex="100">
                 <md-input-container class="md-block" flex-gt-sm>
-                <md-select name="contactType" placeholder="{{ 'contact.typeContact' | translate }}" ng-model="contact.contact.contactType" required>
-                <md-option ng-repeat="(key, value) in contact.contactType.contact" value="{{key}}">{{key}}</md-option>
+                <md-select name="contactType"
+                           placeholder="{{ 'contact.typeContact' | translate }}"
+                           ng-model="contact.contact.contactType"
+                           required>
+
+                <md-option ng-repeat="(key, value) in contact.contactType.contact"
+                           value="{{key}}">{{key}}</md-option>
+
                 </md-select>
                     <div ng-messages="contactForm.contactType.$error">
-                    <div ng-message="required" translate="contact.typeRequired"></div>
+                    <div ng-message="required"
+                         translate="contact.typeRequired"></div>
                     </div>
                 </md-input-container>
             </div>
@@ -64,15 +80,21 @@
 
             <div layout="column" flex="100" ng-if="contact.hideId"> <!--wyswietlone id ale ukryte-->
                 <md-input-container>
-                    <input required name="employeeId" ng-model="contact.employeeId" readonly>
+                    <input required name="employeeId"
+                           ng-model="contact.employeeId"
+                           readonly>
                 </md-input-container>
             </div>
 
             <div>
-                <md-button class="contact__back" ng-click="contact.back()" type="submit">
+                <md-button class="contact__back"
+                           ng-click="contact.back()"
+                           type="submit">
                     <md-icon translate="icons.back"></md-icon>
                 </md-button>
-                <md-button class="contact__done" ng-click="contact.saveContact()" type="submit">
+                <md-button class="contact__done"
+                           ng-click="contact.saveContact()"
+                           type="submit">
                     <md-icon translate="icons.add"></md-icon>
                 </md-button>
             </div>
