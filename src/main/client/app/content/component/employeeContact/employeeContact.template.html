@@ -53,7 +53,7 @@
             <div layout="column" flex="100">
                 <md-input-container class="md-block" flex-gt-sm>
                 <md-select name="contactType" placeholder="{{ 'contact.typeContact' | translate }}" ng-model="contact.contact.contactType" required>
-                <md-option ng-repeat="(key, value) in contact.contactType" value="{{key}}">{{key}}</md-option>
+                <md-option ng-repeat="(key, value) in contact.contactType.contact" value="{{key}}">{{key}}</md-option>
                 </md-select>
                     <div ng-messages="contactForm.contactType.$error">
                     <div ng-message="required" translate="contact.typeRequired"></div>

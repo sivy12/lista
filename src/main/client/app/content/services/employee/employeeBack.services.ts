@@ -7,13 +7,7 @@ module employees {
         //getEmployee(pageNumber: number, pageSize: number): ng.IHttpPromise<IPageResponseArgs<IEmployee>>;
         getEmployeeDetail(employeeId: number): ng.IHttpPromise<IEmployee>;
         deleteEmployeeDetail (id: number): ng.IHttpPromise<IEmployee>;
-        getContacts (id: number): ng.IHttpPromise<Array<IContact>>;
-        deleteContacts (id: number, idContact: number): ng.IHttpPromise<IContact>;
-        saveContact(id: number, contact: IContact): ng.IHttpPromise<IContact>;
         saveEmployee(employee: IEmployee): ng.IHttpPromise<IEmployee>;
-        getContactsType (): ng.IHttpPromise<IContactType>;
-
-
 
     }
     /*obiekt*/
@@ -65,50 +59,6 @@ module employees {
 
         };
 
-
-        /*jeżeli biorę tablice musze ją zadeklarować*/
-        public getContacts (id: number): ng.IHttpPromise<Array<IContact>> {
-            return this.$resource(`${this.ConfigService.getHost()}/employee/:id/contacts`, {
-                id: id,
-            }, {
-                'query': {
-                    method: 'GET',
-                    isArray: true
-                }
-            }).query({}).$promise
-
-        };
-        public getContactsType (): ng.IHttpPromise<IContactType> {
-            return this.$resource(`${this.ConfigService.getHost()}/employee/contacts`, {
-            }, {
-                'query': {
-                    method: 'GET'
-                }
-            }).query({}).$promise
-
-        };
-
-        public deleteContacts (id: number, idContact: number): ng.IHttpPromise<IContact> {
-            return this.$resource(`${this.ConfigService.getHost()}/employee/:id/contacts/:idContact`, {
-                id: id,
-                idContact: idContact,
-            }, {
-                'query': {
-                    method: 'DELETE'
-                }
-            }).query({}).$promise
-
-        };
-
-        public saveContact(id: number, contact: IContact): ng.IHttpPromise<IContact> {
-            return this.$resource(`${this.ConfigService.getHost()}/employee/:id/contacts`, {
-                id: id,
-            }, {
-                'query': {
-                    method: 'POST'
-                }
-            }).query(contact).$promise;
-        };
 
         public saveEmployee(employee: IEmployee): ng.IHttpPromise<IEmployee> {
             return this.$resource(`${this.ConfigService.getHost()}/employee/`, {

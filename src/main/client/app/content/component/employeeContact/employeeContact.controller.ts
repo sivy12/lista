@@ -12,12 +12,13 @@ module employees {
         employeeId = this.$stateParams.id;
         contact: IContact;
         private newContact: boolean = true;
-        contactType: IContactType;
+        contactType: IContactArrayBase<IContactType>;
 
 
         // @ngInject
         constructor(private $translatePartialLoader: ng.translate.ITranslatePartialLoaderService,
                     private EmployeeBackService: IEmployeeBackService,
+                    private ContactTypeService: IContactTypeService,
                     private $stateParams: ActorsStateParams
                     //private JQueryUtilsService: IJQueryUtilsService,
                     //private $translate: ITranslateService,
@@ -30,8 +31,8 @@ module employees {
         }
 
         private init() {
-                this.EmployeeBackService.getContacts(this.employeeId).then(this.getContactCallBack);
-                this.EmployeeBackService.getContactsType().then(this.getContactsTypeCallBack);
+                this.ContactTypeService.getContacts(this.employeeId).then(this.getContactCallBack);
+                this.ContactTypeService.getContactsType().then(this.getContactsTypeCallBack);
         }
 
         /*jeżeli przyjmuje tablice musze ja zadeklarowac w servisie oraz res oznacza to ze bierze całą tablicę*/
@@ -40,7 +41,7 @@ module employees {
 
         };
 
-        private getContactsTypeCallBack = (res: IContactType) => {
+        private getContactsTypeCallBack = (res: IContactArrayBase<IContactType>) => {
             this.contactType = res;
 
             console.log(res);
@@ -48,13 +49,12 @@ module employees {
 
 
         private deleteContactId(contactId: number) {
-            this.EmployeeBackService.deleteContacts(this.employeeId, contactId).then(this.contactDeleteCallBack);
+            this.ContactTypeService.deleteContacts(this.employeeId, contactId).then(this.contactDeleteCallBack);
 
         };
 
 
         private contactDeleteCallBack = (res: IEmployee) => {
-            this.newContact = true;
             this.init();
         };
 
@@ -62,7 +62,7 @@ module employees {
 
         private saveContact = () => {
             if (this.contact != null) {
-                this.EmployeeBackService.saveContact(this.employeeId, this.contact).then(this.saveContactCallBack);
+                this.ContactTypeService.saveContact(this.employeeId, this.contact).then(this.saveContactCallBack);
             }
         };
 

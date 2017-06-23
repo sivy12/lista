@@ -11,7 +11,7 @@ module employees {
     const SkillsComponent: ng.IComponentOptions = {
         bindings: {},
         controller: SkillCtrl,
-        controllerAs: 'skill',
+        controllerAs: 'skillCtr',
         templateUrl: 'content/component/skills/skills.template.html'
     };
 

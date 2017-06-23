@@ -26,23 +26,6 @@ module employees {
             this.$translatePartialLoader.addPart('search');
 
         }
-        public onScroll() {
-            console.log(this.pageNumber);
-            this.pageNumber++;
-            console.log(this.pageNumber);
-            this.newList = true;
-           // this.init();
-        }
-
-        /*to chcę wywoływać za każdym przekazaniem true*/
-        // private init() {
-        //     if (this.newList == true) {
-        //         this.EmployeeBackService.getEmployee(this.pageNumber).then(this.getEmpoloyeeCallBack);
-        //         this.newList = false;
-        //     }
-        // }
-
-
 
         public $onChanges(changesObj) {
             /*przy zmianie onChange wyłapuje co się zmienia w current value jest nowa wartość*/
@@ -55,14 +38,6 @@ module employees {
                 });
             }
         }
-
-
-        // private getEmpoloyeeCallBack = (res: IPageResponseArgs<IEmployee>) => {
-        //     console.log("ilość rekordów w tablicy : " + this.employees.length);
-        //     this.employees = res.content;
-        //     this.numer = res.totalPages;
-        //
-        // }
 
 
         public selectEmployeeId(employeeId: number) {
