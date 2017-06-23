@@ -14,7 +14,7 @@ module employees {
 
         // @ngInject
         constructor() {
-            console.log(this.employee);
+            //console.log(this.employee);
         }
 
 

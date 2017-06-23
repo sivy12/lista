@@ -4,13 +4,15 @@ module employees {
     'use strict';
 
     export interface IEmployeeBackService {
-        getEmployee(pageNumber: number): ng.IHttpPromise<IPageResponseArgs<IEmployee>>;
+        //getEmployee(pageNumber: number, pageSize: number): ng.IHttpPromise<IPageResponseArgs<IEmployee>>;
         getEmployeeDetail(employeeId: number): ng.IHttpPromise<IEmployee>;
         deleteEmployeeDetail (id: number): ng.IHttpPromise<IEmployee>;
         getContacts (id: number): ng.IHttpPromise<Array<IContact>>;
         deleteContacts (id: number, idContact: number): ng.IHttpPromise<IContact>;
         saveContact(id: number, contact: IContact): ng.IHttpPromise<IContact>;
         saveEmployee(employee: IEmployee): ng.IHttpPromise<IEmployee>;
+        getContactsType (): ng.IHttpPromise<IContactType>;
+
 
 
     }
@@ -20,7 +22,6 @@ module employees {
         implements IEmployeeBackService {
 
 
-        // private modal: ng.ui.bootstrap.IModalServiceInstance = null;
 
         // @ngInject
         constructor(private ConfigService: employees.IConfigService,
@@ -29,16 +30,17 @@ module employees {
 
         }
 
-        public getEmployee = (pageNumber: number): ng.IHttpPromise<IPageResponseArgs<IEmployee>> => {
-            return this.$resource(`${this.ConfigService.getHost()}/employee/?`, {
-                pageNumber: pageNumber,
-            }, {
-                'query': {
-                    method: 'GET'
-                }
-            }).query({page:pageNumber}).$promise
-
-        };
+        // public getEmployee = (pageNumber: number, pageSize: number): ng.IHttpPromise<IPageResponseArgs<IEmployee>> => {
+        //     return this.$resource(`${this.ConfigService.getHost()}/employee/?`, {
+        //         pageNumber: pageNumber,
+        //         pageSize: pageSize,
+        //     }, {
+        //         'query': {
+        //             method: 'GET'
+        //         }
+        //     }).query({page:pageNumber,pageSize:15}).$promise
+        //
+        // };
 
 
         public getEmployeeDetail (id: number): ng.IHttpPromise<IEmployee> {
@@ -52,7 +54,6 @@ module employees {
 
         };
 
-        /*brakuje corsa*/
         public deleteEmployeeDetail (id: number): ng.IHttpPromise<IEmployee> {
             return this.$resource(`${this.ConfigService.getHost()}/employee/:id`, {
                 id: id,
@@ -73,6 +74,15 @@ module employees {
                 'query': {
                     method: 'GET',
                     isArray: true
+                }
+            }).query({}).$promise
+
+        };
+        public getContactsType (): ng.IHttpPromise<IContactType> {
+            return this.$resource(`${this.ConfigService.getHost()}/employee/contacts`, {
+            }, {
+                'query': {
+                    method: 'GET'
                 }
             }).query({}).$promise
 

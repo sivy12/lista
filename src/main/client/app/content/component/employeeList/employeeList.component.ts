@@ -11,7 +11,7 @@ module employees {
     const EmployeeListComponent: ng.IComponentOptions = {
         bindings: {
             onSelectEmployee: "&",
-            newEmployee: '<',
+            newEmployee: '<'
         },
         controller: EmployeeListCtrl,
         controllerAs: 'list',

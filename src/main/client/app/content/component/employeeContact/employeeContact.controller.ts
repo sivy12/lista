@@ -12,6 +12,7 @@ module employees {
         employeeId = this.$stateParams.id;
         contact: IContact;
         private newContact: boolean = true;
+        contactType: IContactType;
 
 
         // @ngInject
@@ -30,11 +31,19 @@ module employees {
 
         private init() {
                 this.EmployeeBackService.getContacts(this.employeeId).then(this.getContactCallBack);
+                this.EmployeeBackService.getContactsType().then(this.getContactsTypeCallBack);
         }
 
         /*jeżeli przyjmuje tablice musze ja zadeklarowac w servisie oraz res oznacza to ze bierze całą tablicę*/
         private getContactCallBack = (res: Array<IContact>) => {
             this.details = res;
+
+        };
+
+        private getContactsTypeCallBack = (res: IContactType) => {
+            this.contactType = res;
+
+            console.log(res);
         };
 
 

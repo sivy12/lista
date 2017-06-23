@@ -17,7 +17,8 @@ module employees {
       update: '<',
       updateSelected: '<',
       itemForUpdate: '<',
-      parentId: '<'
+      parentId: '<',
+      onDeleteList: '&'
     },
     controller: GridListCtrl,
     controllerAs: 'ctrl',

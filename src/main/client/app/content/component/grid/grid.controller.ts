@@ -33,6 +33,7 @@ module employees {
     public totalElements: number = 0;
     private parentId: number;
     public query: IQuery;
+    private onDeleteEmployee: boolean;
 
     constructor(private $scope: ng.IScope,
                 private $stateParams: ActorsStateParams,
@@ -130,7 +131,7 @@ module employees {
         enableServerSideSorting: true,
         paginationPageSize: this.itemsPerPage,
         angularCompileRows: true,
-        rowHeight: 54,
+        rowHeight: 52,
         maxPagesInCache: 5,
         enableSorting: false,
         onGridReady: () => {
@@ -208,10 +209,24 @@ module employees {
       this.changeActor(event.node);
     };
 
+    private takeNewListOfEmployee = true;
+
     public setRowData() {
-      this.gridOptions.api.setDatasource(this.dataSource);
-      this.sizeColumnsToFit();
+      if (this.takeNewListOfEmployee){
+        this.gridOptions.api.setDatasource(this.dataSource);
+        this.sizeColumnsToFit();
+        this.takeNewListOfEmployee = false;
+
+      }
     };
+
+    public refresz(){
+      this.takeNewListOfEmployee = true;
+      this.setRowData();
+    }
+
+
+
 
     public highlightSelectedActor(): void {
       this.gridOptions.api.forEachNode((node, index) => {

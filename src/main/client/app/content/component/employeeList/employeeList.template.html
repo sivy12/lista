@@ -4,7 +4,7 @@
                 <input type="text" class="form-control employeeList__share" ng-model="search" placeholder="{{ 'search.searching' | translate }}" />
             </div>
 
-            <md-icon class="employeeList__hide" translate="icons.arrowRight"></md-icon>
+            <md-icon class="employeeList__hide" translate="icons.search"></md-icon>
         <md-list class="employee__list" flex>
 
             <div >
@@ -14,13 +14,12 @@
                            add-event="list.addNewOrder($event.orderType)"
                            on-update-actor="list.updateActor($event)"
                            current-actor="list.order"
-                           update="list.update"
+                           update="list.newList"
                            update-selected="list.updateSelected"
                            item-for-update="list.order"
-                           items-per-page="15"></grid-list>
+                           items-per-page="15"
+                           update="list.newList"></grid-list>
             </div>
-
-
 
         </md-list>
 

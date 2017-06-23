@@ -49,12 +49,11 @@ module employees {
     }
 
     public getEmployee(query: IQuery): ng.IHttpPromise<IPageResponseArgs<IEmployee>>{
-      console.log("tutaj");
       return this.$resource(`${this.ConfigService.getHost()}/employee/?`, {}, {
         'query': {
           method: 'GET'
         }
-      }).query({page:query.page}).$promise
+      }).query({page:query.page,pageSize:query.size}).$promise
 
     };
 

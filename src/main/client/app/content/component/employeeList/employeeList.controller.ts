@@ -12,14 +12,16 @@ module employees {
         employees: IEmployee[] = [];
         public numer: number;
         public onSelectEmployee: ($event) => void;
-        public newList: boolean = true;
+        public newList: boolean;
         private newEmployee: boolean;
         private pageNumber: number = 0;
         public actorType = EActorType.EMPLOYEE;
 
         // @ngInject
         constructor(private $translatePartialLoader: ng.translate.ITranslatePartialLoaderService,
-                    private EmployeeBackService: IEmployeeBackService) {
+                    private EmployeeBackService: IEmployeeBackService,
+                    private $timeout: ng.ITimeoutService) {
+           // this.init();
             this.$translatePartialLoader.addPart('icons');
             this.$translatePartialLoader.addPart('search');
 
@@ -29,36 +31,38 @@ module employees {
             this.pageNumber++;
             console.log(this.pageNumber);
             this.newList = true;
-            this.init();
+           // this.init();
         }
 
         /*to chcę wywoływać za każdym przekazaniem true*/
-        private init() {
-            if (this.newList == true) {
-                this.EmployeeBackService.getEmployee(this.pageNumber).then(this.getEmpoloyeeCallBack);
-                this.newList = false;
-            }
-        }
+        // private init() {
+        //     if (this.newList == true) {
+        //         this.EmployeeBackService.getEmployee(this.pageNumber).then(this.getEmpoloyeeCallBack);
+        //         this.newList = false;
+        //     }
+        // }
 
 
 
         public $onChanges(changesObj) {
             /*przy zmianie onChange wyłapuje co się zmienia w current value jest nowa wartość*/
-            console.log("z rodzica po bindingu newEmployee usunięcia przychodzi wartość: " + changesObj.newEmployee.currentValue)
+            console.log("asdasdsz rodzica po bindingu newEmployee usunięcia przychodzi wartość: " + changesObj.newEmployee.currentValue)
             if (changesObj && changesObj.newEmployee && changesObj.newEmployee.currentValue) {
                 this.newList = changesObj.newEmployee.currentValue;
-                this.init();
+                this.$timeout(() => {  /*timeout żeby powracało do wartości wyjściowej*/
+                    this.newList = false;
+
+                });
             }
         }
 
 
-        private getEmpoloyeeCallBack = (res: IPageResponseArgs<IEmployee>) => {
-            /*sprawdzam ilość przesłanych rekordów w tablicy*/
-            console.log("ilość rekordów w tablicy : " + this.employees.length);
-            this.employees = res.content;
-            this.numer = res.totalPages;
-
-        }
+        // private getEmpoloyeeCallBack = (res: IPageResponseArgs<IEmployee>) => {
+        //     console.log("ilość rekordów w tablicy : " + this.employees.length);
+        //     this.employees = res.content;
+        //     this.numer = res.totalPages;
+        //
+        // }
 
 
         public selectEmployeeId(employeeId: number) {

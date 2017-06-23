@@ -1,10 +1,11 @@
 <div class="contact__box">
 
     <md-card class="contact__main">
-
+            {{contact.contactType.icon}}
         <md-subheader class="header__main">
             <label translate="contact.dataTitle"></label>
         </md-subheader>
+
 
         <div ng-repeat="con in contact.details">
         <md-list-item class="contact__item">
@@ -52,11 +53,7 @@
             <div layout="column" flex="100">
                 <md-input-container class="md-block" flex-gt-sm>
                 <md-select name="contactType" placeholder="{{ 'contact.typeContact' | translate }}" ng-model="contact.contact.contactType" required>
-                <md-option value="SKYPE">SKYPE</md-option>
-                <md-option value="EMAIL">EMAIL</md-option>
-                <md-option value="PHONE_PRIVATE">PHONE_PRIVATE</md-option>
-                <md-option value="SLACK">SLACK</md-option>
-                <md-option value="ADDRESS">ADDRESS</md-option>
+                <md-option ng-repeat="(key, value) in contact.contactType" value="{{key}}">{{key}}</md-option>
                 </md-select>
                     <div ng-messages="contactForm.contactType.$error">
                     <div ng-message="required" translate="contact.typeRequired"></div>

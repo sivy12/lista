@@ -1,8 +1,5 @@
 .employeeList__box{
   position: relative;
-  height: 100vh;
-  width: 100%;
-  overflow: auto;
   box-sizing: border-box;
 }
 
@@ -14,21 +11,29 @@
 
 .employeeList__content{
   margin-top: 65px;
-}
-
-.employeeList__top{
-  margin-top: -8px;
-  position: absolute;
-  top: 8px;
-  left: 0;
+  height: 100vh;
   width: 100%;
 }
 
+.employeeList__top{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 4;
+}
+
+.employeeList__hide{
+  position: absolute;
+  top: 18px;
+  z-index: 4;
+}
+
 .employee__list{
-  padding-top: 36px;
 }
 
 .employeeList__share{
   background: white;
   border: none;
+  padding: 30px 10px;
 }
