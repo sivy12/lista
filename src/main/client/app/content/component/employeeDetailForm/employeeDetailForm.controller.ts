@@ -14,7 +14,6 @@ module employees {
         private update: boolean = true;
         employeeId = this.$stateParams.id;
         employee: IEmployee;
-
         public onEdit: ($event) => void;
 
 
@@ -35,24 +34,21 @@ module employees {
                 this.EmployeeBackService.getEmployeeDetail(this.employeeId).then(this.getEmployeeFormCallBack);
                 this.update = false;
             }
-        }
+        };
 
         private getEmployeeFormCallBack = (det: IEmployee) => {
-
             this.employee = det;
             console.log("dane aktualne przed zapisaniem to: " + this.employee);
 
-        }
+        };
 
         public saveEmployee = () => {
             this.onEdit({$event: angular.copy(false)});
-
             this.EmployeeBackService.saveEmployee(this.employee).then(this.saveEmployeeCallBack);
 
         };
 
         private saveEmployeeCallBack = (response) => {
-
         };
 
 

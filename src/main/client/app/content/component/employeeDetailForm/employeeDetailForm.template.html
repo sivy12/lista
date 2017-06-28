@@ -11,8 +11,7 @@
                    ng-model="detailFormCtr.employee.name">
 
             <div ng-messages="detailForm.clientName.$error">
-                <div ng-message="required"
-                     translate="detail.nameRequired"></div>
+                <div ng-message="required" translate="detail.nameRequired"></div>
             </div>
         </md-input-container>
     </div>
@@ -25,8 +24,7 @@
                    ng-model="detailFormCtr.employee.lastname">
 
             <div ng-messages="detailForm.clientLastname.$error">
-                <div ng-message="required"
-                     translate="detail.lastnameRequired"></div>
+                <div ng-message="required" translate="detail.lastnameRequired"></div>
             </div>
         </md-input-container>
     </div>
@@ -39,8 +37,7 @@
                    ng-model="detailFormCtr.employee.position">
 
             <div ng-messages="detailForm.clientSection.$error">
-                <div ng-message="required"
-                     translate="detail.positionRequired"></div>
+                <div ng-message="required" translate="detail.positionRequired"></div>
             </div>
         </md-input-container>
     </div>
@@ -54,15 +51,14 @@
                    ng-model="detailFormCtr.employee.avatarFilePath">
 
             <div ng-messages="detailForm.clientAvatar.$error">
-                <div ng-message="required"
-                     translate="detail.avatarRequired"></div>
+                <div ng-message="required" translate="detail.avatarRequired"></div>
             </div>
         </md-input-container>
     </div>
 
     <div layout="column"
          flex="100"
-         ng-if="detailFormCtr.lol">
+         ng-if="detailFormCtr.hideId">
         <md-input-container>
             <input required
                    name="employeeId"

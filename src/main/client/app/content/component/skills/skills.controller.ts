@@ -15,10 +15,7 @@ module employees {
         addNewSkill: ISkills;
         public hideThis: boolean;
         public hideThisDesc: boolean;
-
-
-
-
+        formContainerVisible = false;
 
         // @ngInject
         constructor(private $translatePartialLoader: ng.translate.ITranslatePartialLoaderService,
@@ -31,7 +28,7 @@ module employees {
         }
         private init() {
             this.SkillsService.getSkills(this.employeeId).then(this.getSkillsCallBack);
-        }
+        };
 
         private getSkillsCallBack = (res: Array<ISkills>) => {
             this.skillsArray = res;
@@ -63,7 +60,8 @@ module employees {
             this.SkillsService.getSkillsByName(this.addNewSkill.skillName).then(this.getSkillsByNameCallBack);
             console.log(this.addNewSkill.skillName);
             this.hideThis = false;
-        }
+        };
+
         private getSkillsByNameCallBack = (res: Array<ISkillsFindByName>) => {
             this.skillsByName = res;
         };
@@ -71,13 +69,13 @@ module employees {
         private fillTextBoxName(name: string){
             this.addNewSkill.skillName = name;
             this.hideThis = true;
-        }
+        };
 
         private registerKeyPressForSearchDesc(){
             this.SkillsService.getSkillsByDescription(this.addNewSkill.description).then(this.getSkillsByDescCallBack);
             console.log(this.addNewSkill.skillName);
             this.hideThisDesc = false;
-        }
+        };
 
         private getSkillsByDescCallBack = (res: Array<ISkillsFindByDesc>) => {
             this.skillsByDesc = res;
@@ -86,15 +84,13 @@ module employees {
         private fillTextBoxDesc(name: string){
             this.addNewSkill.description = name;
             this.hideThisDesc = true;
-        }
+        };
 
         private back() {
             this.formContainerVisible = false;
             this.addNewSkill.skillName = defaultStatus;
             this.addNewSkill.description = defaultStatus;
-        }
-
-        formContainerVisible = false;
+        };
 
         private formcontainer() {
 

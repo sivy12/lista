@@ -23,7 +23,9 @@
         </div>
 
         <md-list-item>
-            <md-button class="contact__done" ng-click="skillCtr.formcontainer()" type="submit">
+            <md-button class="contact__done"
+                       ng-click="skillCtr.formcontainer()"
+                       type="submit">
                 <md-icon translate="icons.add"></md-icon>
             </md-button>
         </md-list-item>
@@ -46,7 +48,9 @@
                            ng-model="skillCtr.addNewSkill.skillName"
                            ng-keyup="skillCtr.registerKeyPressForSearchName()"
                            class="form-control">
-                    <ul class="list-group skills__list" ng-model="skillCtr.hideThis" ng-hide="skillCtr.hideThis">
+                    <ul class="list-group skills__list"
+                        ng-model="skillCtr.hideThis"
+                        ng-hide="skillCtr.hideThis">
                         <div class="skills__relative">
                             <li class="list-group-item skills__listSkill"
                                 ng-repeat="skill in skillCtr.skillsByName"
@@ -71,7 +75,9 @@
                            ng-model="skillCtr.addNewSkill.description"
                            ng-keyup="skillCtr.registerKeyPressForSearchDesc()"
                            class="form-control">
-                    <ul class="list-group skills__list" ng-model="skillCtr.hideThisDesc" ng-hide="skillCtr.hideThisDesc">
+                    <ul class="list-group skills__list"
+                        ng-model="skillCtr.hideThisDesc"
+                        ng-hide="skillCtr.hideThisDesc">
                         <div class="skills__relative">
                             <li class="list-group-item skills__listSkill"
                                 ng-repeat="skillDesc in skillCtr.skillsByDesc"
@@ -89,7 +95,7 @@
                 </md-input-container>
             </div>
 
-            <div layout="column" flex="100" ng-if="skillCtr.hideId"> <!--wyswietlone id ale ukryte-->
+            <div layout="column" flex="100" ng-if="skillCtr.hideId">
                     <input required name="employeeId" ng-model="skillCtr.employeeId" readonly>
             </div>
 

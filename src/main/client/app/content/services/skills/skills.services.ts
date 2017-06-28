@@ -7,15 +7,12 @@ module employees {
         getSkills (id: number): ng.IHttpPromise<Array<ISkills>>;
         deleteSkills (id: number, idSkills: number): ng.IHttpPromise<ISkills>;
         saveSkills(id: number, skill: ISkills): ng.IHttpPromise<ISkills>;
-        //getContactsType (): ng.IHttpPromise<IContactArrayBase<IContactType>>;
         getSkillsByName (skillPart: string): ng.IHttpPromise<Array<ISkillsFindByName>>;
         getSkillsByDescription (skillDesc: string): ng.IHttpPromise<Array<ISkillsFindByDesc>>;
     }
-    /*obiekt*/
 
     export class SkillsService
         implements ISkillsService {
-
 
         // @ngInject
         constructor(private ConfigService: employees.IConfigService,
@@ -24,9 +21,8 @@ module employees {
 
         }
 
-        /*jeżeli biorę tablice musze ją zadeklarować*/
         public getSkills (id: number): ng.IHttpPromise<Array<ISkills>> {
-            return this.$resource(`${this.ConfigService.getHost()}/employee/:id/skills`, {
+            return this.$resource(`${this.ConfigService.getHost()}/skill/:id`, {
                 id: id,
             }, {
                 'query': {
@@ -36,8 +32,9 @@ module employees {
             }).query({}).$promise
 
         };
+
         public getSkillsByName (skillPart: string): ng.IHttpPromise<Array<ISkillsFindByName>> {
-            return this.$resource(`${this.ConfigService.getHost()}/employee/skills/:skillPart`, {
+            return this.$resource(`${this.ConfigService.getHost()}/skill/dict/:skillPart`, {
                 skillPart: skillPart,
             }, {
                 'query': {
@@ -47,8 +44,9 @@ module employees {
             }).query({}).$promise
 
         };
+
         public getSkillsByDescription (skillDesc: string): ng.IHttpPromise<Array<ISkillsFindByDesc>> {
-            return this.$resource(`${this.ConfigService.getHost()}/employee/skills/desc/:skillDesc`, {
+            return this.$resource(`${this.ConfigService.getHost()}/skill/dict/desc/:skillDesc`, {
                 skillDesc: skillDesc,
             }, {
                 'query': {
@@ -58,18 +56,9 @@ module employees {
             }).query({}).$promise
 
         };
-        // public getContactsType (): ng.IHttpPromise<IContactArrayBase<IContactType>> {
-        //     return this.$resource(`${this.ConfigService.getHost()}/employee/contacts`, {
-        //     }, {
-        //         'query': {
-        //             method: 'GET'
-        //         }
-        //     }).query({}).$promise
-        //
-        // };
-        //
+
         public deleteSkills (id: number, idSkills: number): ng.IHttpPromise<ISkills> {
-            return this.$resource(`${this.ConfigService.getHost()}/employee/:id/skills/:idSkills`, {
+            return this.$resource(`${this.ConfigService.getHost()}/skill/:id/delete/:idSkills`, {
                 id: id,
                 idSkills: idSkills,
             }, {
@@ -81,7 +70,7 @@ module employees {
         };
 
         public saveSkills(id: number, skill: ISkills): ng.IHttpPromise<ISkills> {
-            return this.$resource(`${this.ConfigService.getHost()}/employee/:id/skills`, {
+            return this.$resource(`${this.ConfigService.getHost()}/skill/:id`, {
                 id: id,
             }, {
                 'query': {
@@ -89,7 +78,6 @@ module employees {
                 }
             }).query(skill).$promise;
         };
-
 
     }
 

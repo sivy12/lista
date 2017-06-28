@@ -10,11 +10,9 @@ module employees {
     export class EmployeeListCtrl {
 
         employees: IEmployee[] = [];
-        public numer: number;
         public onSelectEmployee: ($event) => void;
         public newList: boolean;
         private newEmployee: boolean;
-        private pageNumber: number = 0;
         public actorType = EActorType.EMPLOYEE;
 
         // @ngInject
@@ -24,7 +22,6 @@ module employees {
            // this.init();
             this.$translatePartialLoader.addPart('icons');
             this.$translatePartialLoader.addPart('search');
-
         }
 
         public $onChanges(changesObj) {
@@ -37,8 +34,7 @@ module employees {
 
                 });
             }
-        }
-
+        };
 
         public selectEmployeeId(employeeId: number) {
             console.log("wysyłam id z dziecka do rodzica selectEmployeId ", employeeId);

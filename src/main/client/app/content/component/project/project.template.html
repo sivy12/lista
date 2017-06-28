@@ -56,7 +56,9 @@
 
 
                             <md-list-item  class="main__item project__item" ng-click="null">
-                                <div class="project__noactiv" layout="column" translate="project.mockProject">
+                                <div class="project__noactiv"
+                                     layout="column"
+                                     translate="project.mockProject">
                                 </div>
                             </md-list-item>
 
@@ -85,7 +87,10 @@
 
                 <div layout="column" flex="100">
                     <md-input-container class="md-block" flex-gt-sm>
-                        <md-select name="contactType" placeholder="{{ 'project.choose' | translate }}" ng-model="contact.contact.contactType" required>
+                        <md-select name="contactType"
+                                   placeholder="{{ 'project.choose' | translate }}"
+                                   ng-model="contact.contact.contactType"
+                                   required>
                             <md-option value="Aktualne">Aktualne</md-option>
                             <md-option value="Archiwalne">Archiwalne</md-option>
                         </md-select>
@@ -95,7 +100,9 @@
                     </md-input-container>
                 </div>
 
-                <md-button type="submit" ng-click="projectCtr.formContainer()" class="project__btn">
+                <md-button type="submit"
+                           ng-click="projectCtr.formContainer()"
+                           class="project__btn">
                     <md-icon translate="icons.add"></md-icon>
                 </md-button>
 

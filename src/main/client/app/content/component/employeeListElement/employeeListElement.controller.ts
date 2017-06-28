@@ -11,7 +11,6 @@ module employees {
 
         public employee: IEmployee;
 
-
         // @ngInject
         constructor() {
             //console.log(this.employee);

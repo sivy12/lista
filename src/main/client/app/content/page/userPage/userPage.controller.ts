@@ -17,8 +17,7 @@ module employees {
         }
 
 
-        private refreshFromChild(employee: number) {
-            console.log("Przekazanie z dziecka detailPage po usunięciu ID znajduje się u rodzica wszystkich komponentów: " + employee);
+        private refreshEmployeeList(employee: number) {
             this.refreshEmployee = true;
             this.$timeout(() => {  /*timeout żeby powracało do wartości wyjściowej*/
                 this.refreshEmployee = false;

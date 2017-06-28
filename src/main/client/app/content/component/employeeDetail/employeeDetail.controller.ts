@@ -12,6 +12,7 @@ module employees {
         private employee: IEmployee;
         public onDeleteEmployee: ($event) => void;
         employeeId = this.$stateParams.id;
+        formContainerVisible = false;
 
         // @ngInject
         constructor(private $translatePartialLoader: ng.translate.ITranslatePartialLoaderService,
@@ -27,27 +28,24 @@ module employees {
 
         private getEmployeeDetailCallBack = (res: IEmployee) => {
             this.employee = res;
-        }
+        };
 
         private deleteEmployeeId() {
                 this.EmployeeBackService.deleteEmployeeDetail(this.employeeId).then(this.getEmployeeDeleteCallBack);
         };
-
 
         private getEmployeeDeleteCallBack = (res: IEmployee) => {
             this.onDeleteEmployee({$event: angular.copy(this.employeeId)});
             /*przypisanei dopeiro w callbacku, po wywołaniu metody*/
             this.$state.go('access.userPage');
 
-        }
+        };
 
-        private hideForm(zmienna) {
-            this.formContainerVisible = zmienna;
-        }
+        private hideForm(hideVariable) {
+            this.formContainerVisible = hideVariable;
+        };
 
-        formContainerVisible = false;
-
-        private formcontainer() {
+        private formContainer() {
             this.formContainerVisible = !this.formContainerVisible;
         };
 

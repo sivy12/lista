@@ -9,6 +9,7 @@ module employees {
     export class ProjectCtrl {
 
         user: IUser = {};
+        formContainerVisible = false;
 
         // @ngInject
         constructor(private $translatePartialLoader: ng.translate.ITranslatePartialLoaderService) {
@@ -19,7 +20,6 @@ module employees {
         }
 
 
-        formContainerVisible = false;
 
         private formContainer() {
             this.formContainerVisible = !this.formContainerVisible;

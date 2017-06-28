@@ -4,13 +4,11 @@ module employees {
     'use strict';
 
     export interface IEmployeeBackService {
-        //getEmployee(pageNumber: number, pageSize: number): ng.IHttpPromise<IPageResponseArgs<IEmployee>>;
         getEmployeeDetail(employeeId: number): ng.IHttpPromise<IEmployee>;
         deleteEmployeeDetail (id: number): ng.IHttpPromise<IEmployee>;
         saveEmployee(employee: IEmployee): ng.IHttpPromise<IEmployee>;
 
     }
-    /*obiekt*/
 
     export class EmployeeBackService
         implements IEmployeeBackService {
@@ -23,19 +21,6 @@ module employees {
                     private $q: ng.IQService) {
 
         }
-
-        // public getEmployee = (pageNumber: number, pageSize: number): ng.IHttpPromise<IPageResponseArgs<IEmployee>> => {
-        //     return this.$resource(`${this.ConfigService.getHost()}/employee/?`, {
-        //         pageNumber: pageNumber,
-        //         pageSize: pageSize,
-        //     }, {
-        //         'query': {
-        //             method: 'GET'
-        //         }
-        //     }).query({page:pageNumber,pageSize:15}).$promise
-        //
-        // };
-
 
         public getEmployeeDetail (id: number): ng.IHttpPromise<IEmployee> {
             return this.$resource(`${this.ConfigService.getHost()}/employee/:id`, {
@@ -58,7 +43,6 @@ module employees {
             }).query({}).$promise
 
         };
-
 
         public saveEmployee(employee: IEmployee): ng.IHttpPromise<IEmployee> {
             return this.$resource(`${this.ConfigService.getHost()}/employee/`, {
