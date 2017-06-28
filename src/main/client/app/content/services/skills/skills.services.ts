@@ -9,7 +9,7 @@ module employees {
         saveSkills(id: number, skill: ISkills): ng.IHttpPromise<ISkills>;
         //getContactsType (): ng.IHttpPromise<IContactArrayBase<IContactType>>;
         getSkillsByName (skillPart: string): ng.IHttpPromise<Array<ISkillsFindByName>>;
-
+        getSkillsByDescription (skillDesc: string): ng.IHttpPromise<Array<ISkillsFindByDesc>>;
     }
     /*obiekt*/
 
@@ -39,6 +39,17 @@ module employees {
         public getSkillsByName (skillPart: string): ng.IHttpPromise<Array<ISkillsFindByName>> {
             return this.$resource(`${this.ConfigService.getHost()}/employee/skills/:skillPart`, {
                 skillPart: skillPart,
+            }, {
+                'query': {
+                    method: 'GET',
+                    isArray: true
+                }
+            }).query({}).$promise
+
+        };
+        public getSkillsByDescription (skillDesc: string): ng.IHttpPromise<Array<ISkillsFindByDesc>> {
+            return this.$resource(`${this.ConfigService.getHost()}/employee/skills/desc/:skillDesc`, {
+                skillDesc: skillDesc,
             }, {
                 'query': {
                     method: 'GET',

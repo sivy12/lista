@@ -1,4 +1,3 @@
-
 <div class="skills__box">
 
     <md-card class="skills__overflow" >
@@ -32,38 +31,54 @@
     </md-card>
 
     <div ng-if="skillCtr.formContainerVisible" class="contact__form">
-        <form name="skillsForm" novalidate>
+        <form name="skillsForm" autocomplete="off" novalidate>
             <div class="header__main">
                 <label translate="skills.addSkills"></label>
             </div>
 
-            <div layout="column" flex="100">
-                <md-input-container>
-                    <input required name="skillName"
+            <div class="skills__container" layout="column" flex="100">
+                <md-input-container class="skills__container">
+                    <input type="text"
+                           required
+                           name="skillName"
+                           id="skillName"
                            placeholder="{{'skills.skillTitle' | translate}}"
                            ng-model="skillCtr.addNewSkill.skillName"
-                           ng-keyup="skillCtr.registerKeyPress()">
+                           ng-keyup="skillCtr.registerKeyPressForSearchName()"
+                           class="form-control">
+                    <ul class="list-group skills__list" ng-model="skillCtr.hideThis" ng-hide="skillCtr.hideThis">
+                        <div class="skills__relative">
+                            <li class="list-group-item skills__listSkill"
+                                ng-repeat="skill in skillCtr.skillsByName"
+                                ng-click="skillCtr.fillTextBoxName(skill)">{{skill}}</li>
+                        </div>
+                    </ul>
                     <div ng-messages="skillsForm.skillName.$error">
-                        <div ng-message="required"
-                             translate="skills.skillNameRequired"></div>
+                    <div ng-message="required"
+                    translate="skills.skillNameRequired"></div>
                     </div>
                 </md-input-container>
-                <div ng-repeat="(key,value) in skillCtr.skillsByName">
-                    {{value}}
-                </div>
             </div>
 
-            <!--Do zrobienia lista enumów z backendu, wtedy trzeba podpiąć-->
-            <div layout="column" flex="100">
-                <md-input-container class="md-block" flex-gt-sm>
-                    <input name="discription"
-                           placeholder="{{'skills.skillDescription' | translate}}"
+            <div class="skills__container" layout="column" flex="100">
+                <md-input-container class="skills__container">
+                    <input type="text"
                            required
-                           ng-pattern=""
                            md-maxlength="30"
-                           ng-model="skillCtr.addNewSkill.description">
-
-                    <div ng-messages="skillsForm.discription.$error">
+                           name="description"
+                           id="skillDescription"
+                           placeholder="{{'skills.skillDescription' | translate}}"
+                           ng-model="skillCtr.addNewSkill.description"
+                           ng-keyup="skillCtr.registerKeyPressForSearchDesc()"
+                           class="form-control">
+                    <ul class="list-group skills__list" ng-model="skillCtr.hideThisDesc" ng-hide="skillCtr.hideThisDesc">
+                        <div class="skills__relative">
+                            <li class="list-group-item skills__listSkill"
+                                ng-repeat="skillDesc in skillCtr.skillsByDesc"
+                                ng-click="skillCtr.fillTextBoxDesc(skillDesc)">{{skillDesc}}</li>
+                        </div>
+                    </ul>
+                    <div ng-messages="skillsForm.description.$error">
                         <div ng-message="required"
                              translate="skills.descriptionRequired"></div>
 
@@ -75,9 +90,7 @@
             </div>
 
             <div layout="column" flex="100" ng-if="skillCtr.hideId"> <!--wyswietlone id ale ukryte-->
-                <md-input-container>
                     <input required name="employeeId" ng-model="skillCtr.employeeId" readonly>
-                </md-input-container>
             </div>
 
             <div>

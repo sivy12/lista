@@ -53,8 +53,10 @@
     "node": ">=0.10.0"
   },
   "dependencies": {
+    "autocomplete": "0.0.1",
     "minimist": "^1.2.0",
-    "moment": "^2.17.1"
+    "moment": "^2.17.1",
+    "npm-typeahead": "^0.2.0"
   },
   "version": "1.0.0",
   "main": "Gruntfile.js",

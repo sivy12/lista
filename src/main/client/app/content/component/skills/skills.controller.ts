@@ -11,7 +11,12 @@ module employees {
         employeeId = this.$stateParams.id;
         skillsArray: Array<ISkills>;
         skillsByName: Array<ISkillsFindByName> = [];
+        skillsByDesc: Array<ISkillsFindByDesc> = [];
         addNewSkill: ISkills;
+        public hideThis: boolean;
+        public hideThisDesc: boolean;
+
+
 
 
 
@@ -19,7 +24,6 @@ module employees {
         constructor(private $translatePartialLoader: ng.translate.ITranslatePartialLoaderService,
                     private SkillsService: ISkillsService,
                     private $stateParams: ActorsStateParams
-
         ) {
             this.init();
             this.$translatePartialLoader.addPart('icons');
@@ -55,20 +59,39 @@ module employees {
             this.addNewSkill.description = defaultStatus;
         };
 
-        private variableFindSkillByName: string;
-
-        private registerKeyPress(){
+        private registerKeyPressForSearchName(){
             this.SkillsService.getSkillsByName(this.addNewSkill.skillName).then(this.getSkillsByNameCallBack);
-            console.log(this.variableFindSkillByName);
+            console.log(this.addNewSkill.skillName);
+            this.hideThis = false;
         }
-
         private getSkillsByNameCallBack = (res: Array<ISkillsFindByName>) => {
             this.skillsByName = res;
         };
 
+        private fillTextBoxName(name: string){
+            this.addNewSkill.skillName = name;
+            this.hideThis = true;
+        }
+
+        private registerKeyPressForSearchDesc(){
+            this.SkillsService.getSkillsByDescription(this.addNewSkill.description).then(this.getSkillsByDescCallBack);
+            console.log(this.addNewSkill.skillName);
+            this.hideThisDesc = false;
+        }
+
+        private getSkillsByDescCallBack = (res: Array<ISkillsFindByDesc>) => {
+            this.skillsByDesc = res;
+        };
+
+        private fillTextBoxDesc(name: string){
+            this.addNewSkill.description = name;
+            this.hideThisDesc = true;
+        }
+
         private back() {
             this.formContainerVisible = false;
-
+            this.addNewSkill.skillName = defaultStatus;
+            this.addNewSkill.description = defaultStatus;
         }
 
         formContainerVisible = false;
@@ -76,6 +99,8 @@ module employees {
         private formcontainer() {
 
             this.formContainerVisible = !this.formContainerVisible;
+            this.addNewSkill.skillName = defaultStatus;
+            this.addNewSkill.description = defaultStatus;
         };
 
     }
