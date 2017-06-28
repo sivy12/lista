@@ -47,7 +47,7 @@ module employees {
 
         formContainerVisible = false;
 
-        private formcontainer() {
+        private formContainer() {
             this.formContainerVisible = !this.formContainerVisible;
         };
 

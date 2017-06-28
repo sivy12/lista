@@ -14,7 +14,6 @@ module employees {
         public onSelectEmployee: ($event) => void;
         public newList: boolean;
         private newEmployee: boolean;
-        private pageNumber: number = 0;
         public actorType = EActorType.EMPLOYEE;
 
         // @ngInject
@@ -44,7 +43,6 @@ module employees {
             console.log("wysyłam id z dziecka do rodzica selectEmployeId ", employeeId);
             this.onSelectEmployee({$event: angular.copy(employeeId)});
         };
-
 
     }
 

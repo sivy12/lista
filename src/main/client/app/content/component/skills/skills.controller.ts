@@ -15,9 +15,7 @@ module employees {
         addNewSkill: ISkills;
         public hideThis: boolean;
         public hideThisDesc: boolean;
-
-
-
+        formContainerVisible = false;
 
 
         // @ngInject
@@ -29,12 +27,18 @@ module employees {
             this.$translatePartialLoader.addPart('icons');
             this.$translatePartialLoader.addPart('skills');
         }
+
         private init() {
             this.SkillsService.getSkills(this.employeeId).then(this.getSkillsCallBack);
-        }
+        };
 
         private getSkillsCallBack = (res: Array<ISkills>) => {
-            this.skillsArray = res;
+            if (res == null){
+                console.log("pusta lista");
+                this.skillsArray = [];
+            } else {
+                this.skillsArray = res;
+            }
         };
 
         private deleteSkillsId(skillId: number) {
@@ -71,7 +75,7 @@ module employees {
         private fillTextBoxName(name: string){
             this.addNewSkill.skillName = name;
             this.hideThis = true;
-        }
+        };
 
         private registerKeyPressForSearchDesc(){
             this.SkillsService.getSkillsByDescription(this.addNewSkill.description).then(this.getSkillsByDescCallBack);
@@ -86,15 +90,13 @@ module employees {
         private fillTextBoxDesc(name: string){
             this.addNewSkill.description = name;
             this.hideThisDesc = true;
-        }
+        };
 
         private back() {
             this.formContainerVisible = false;
             this.addNewSkill.skillName = defaultStatus;
             this.addNewSkill.description = defaultStatus;
-        }
-
-        formContainerVisible = false;
+        };
 
         private formcontainer() {
 

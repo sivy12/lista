@@ -31,9 +31,7 @@ module employees {
         }
 
         public takeRefreshList(employee: number) {
-            console.log("Przekazane id z usunięcia dziecka tego komponentu, przekazuje go dalej do rodzica wszystkich komponentów: takeRefreshList " + employee);
             this.onDeleteRefresh({$event: angular.copy(employee)});
-
         }
         
         
