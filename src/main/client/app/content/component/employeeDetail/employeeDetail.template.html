@@ -1,11 +1,14 @@
 <div class="employee__width">
 
     <md-card class="employee__box">
-        <img src="{{detail.employee.avatarFilePath}}" class="employee__avatar md-avatar" alt="{{detail.employee.name}} avatar" />
+        <img src="{{detail.employee.avatarFilePath}}"
+             class="employee__avatar md-avatar"
+             alt="{{detail.employee.name}} avatar" />
 
         <div class="employee__login">
             <div class="employee__dot"></div>
-            <span  class="employee__status md-subhead" translate="detail.available"></span>
+            <span  class="employee__status md-subhead"
+                   translate="detail.available"></span>
         </div>
 
         <div class="employee__trig"></div>
@@ -24,19 +27,25 @@
         <md-divider></md-divider>
         <div class="employee__detail">
             <div>
-                <div class="detail__place" translate="detail.place"></div>
+                <div class="detail__place"
+                     translate="detail.place"></div>
             </div>
         </div>
         <md-divider></md-divider>
         <div class="employee__detail">
             <div>
-                <div class="detail__place" translate="detail.position"></div> : {{detail.employee.position}}
+                <div class="detail__place"
+                     translate="detail.position"></div> : {{detail.employee.position}}
             </div>
         </div>
 
         <div class="employee__btns">
-            <md-button class="detail__btn" ng-click="detail.formcontainer()">
-                <md-icon type="checkbox" class="detail__edit" translate="icons.edit"></md-icon>
+            <md-button class="detail__btn"
+                       ng-click="detail.formcontainer()">
+
+                <md-icon type="checkbox"
+                         class="detail__edit"
+                         translate="icons.edit"></md-icon>
             </md-button>
 
             <md-button ng-click="detail.deleteEmployeeId()">

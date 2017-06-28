@@ -36,8 +36,7 @@ module employees {
 
         private getEmployeeDeleteCallBack = (res: IEmployee) => {
             this.onDeleteEmployee({$event: angular.copy(this.employeeId)});
-            /*przypisanei dopeiro w callbacku,
-             po wywołaniu metody*/
+            /*przypisanei dopeiro w callbacku, po wywołaniu metody*/
             this.$state.go('access.userPage');
 
         }
@@ -46,8 +45,6 @@ module employees {
             this.formContainerVisible = zmienna;
         }
 
-
-        /*variables for visible*/
         formContainerVisible = false;
 
         private formcontainer() {

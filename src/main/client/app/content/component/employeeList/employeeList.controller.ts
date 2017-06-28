@@ -29,7 +29,7 @@ module employees {
 
         public $onChanges(changesObj) {
             /*przy zmianie onChange wyłapuje co się zmienia w current value jest nowa wartość*/
-            console.log("asdasdsz rodzica po bindingu newEmployee usunięcia przychodzi wartość: " + changesObj.newEmployee.currentValue)
+            console.log("z rodzica po bindingu newEmployee usunięcia przychodzi wartość: " + changesObj.newEmployee.currentValue)
             if (changesObj && changesObj.newEmployee && changesObj.newEmployee.currentValue) {
                 this.newList = changesObj.newEmployee.currentValue;
                 this.$timeout(() => {  /*timeout żeby powracało do wartości wyjściowej*/

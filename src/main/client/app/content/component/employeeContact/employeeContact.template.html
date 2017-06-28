@@ -10,7 +10,6 @@
         <div ng-repeat="con in contact.details">
         <md-list-item class="contact__item">
 
-            <!--Pomyśleć jak zrobić ikonki, czy z backendu czy ts-->
             <i class="contact__fa fa fa-skype" aria-hidden="true"></i>
             <label class="contact__padding">{{con.contactType}}</label>
 
@@ -48,7 +47,8 @@
 
             <div layout="column" flex="100">
                 <md-input-container>
-                    <input required name="contactValue"
+                    <input required
+                           name="contactValue"
                            ng-model="contact.contact.contactValue">
 
                     <div ng-messages="contactForm.contactValue.$error">
@@ -58,7 +58,6 @@
                 </md-input-container>
             </div>
 
-            <!--Do zrobienia lista enumów z backendu, wtedy trzeba podpiąć-->
             <div layout="column" flex="100">
                 <md-input-container class="md-block" flex-gt-sm>
                 <md-select name="contactType"
