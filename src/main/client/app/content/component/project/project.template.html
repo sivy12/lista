@@ -2,69 +2,84 @@
 
     <md-card class="project__relative">
 
-            <md-content class="project__view">
-                <md-tabs md-dynamic-height md-border-bottom>
-                    <md-tab class="project__more" label="{{ 'project.actual' | translate }}">
-                        <md-content class="project__white">
+                <md-content class="project__view">
+                    <md-tabs md-dynamic-height md-border-bottom>
+                        <md-tab class="project__more" label="{{ 'project.Maintenance' | translate }}">
+                            <md-content ng-repeat="item in projectCtr.projectsArrayMaintenance"
+                                        class="project__white">
 
-                            <md-list-item  class="main__item project__item" ng-click="null">
-                                <div layout="column" translate="project.mockProject">
-                                </div>
-                            </md-list-item>
-
-
-                            <md-list-item  class="main__item project__item" ng-click="null">
-                                <div layout="column" translate="project.mockProject">
-                                </div>
-                            </md-list-item>
+                                <md-list-item  class="main__item project__item" ng-click="null">
+                                    <div layout="column">
+                                        {{item.projectName}}
+                                    </div>
+                                </md-list-item>
 
 
-                            <md-list-item  class="main__item project__item" ng-click="null">
-                                <div layout="column" translate="project.mockProject">
-                                </div>
-                            </md-list-item>
+                            </md-content>
+                        </md-tab>
+
+                        <md-tab label="{{ 'project.Development' | translate }}">
+                            <md-content ng-repeat="item in projectCtr.projectsArrayDevelop"
+                                        class="project__white">
 
 
-                            <md-list-item  class="main__item project__item" ng-click="null">
-                                <div layout="column" translate="project.mockProject">
-                                </div>
-                            </md-list-item>
+                                <md-list-item  class="main__item project__item" ng-click="null">
+                                    <div layout="column">
+                                        {{item.projectName}}
+                                    </div>
+                                </md-list-item>
+
+                            </md-content>
+                        </md-tab>
+
+                        <md-tab label="{{ 'project.Rollout' | translate }}">
+                            <md-content ng-repeat="item in projectCtr.projectsArrayRollout"
+                                        class="project__white">
 
 
-                            <md-list-item  class="main__item project__item" ng-click="null">
-                                <div layout="column" translate="project.mockProject">
-                                </div>
-                            </md-list-item>
+                                <md-list-item  class="main__item project__item" ng-click="null">
+                                    <div layout="column">
+                                        {{item.projectName}}
+                                    </div>
+                                </md-list-item>
+
+                            </md-content>
+                        </md-tab>
+
+                        <md-tab label="{{ 'project.Closure' | translate }}">
+                            <md-content ng-repeat="item in projectCtr.projectsArrayClosure"
+                                        class="project__white">
 
 
-                            <md-list-item  class="main__item project__item" ng-click="null">
-                                <div layout="column" translate="project.mockProject">
-                                </div>
-                            </md-list-item>
+                                <md-list-item  class="main__item project__item" ng-click="null">
+                                    <div layout="column">
+                                        {{item.projectName}}
+                                    </div>
+                                </md-list-item>
+
+                            </md-content>
+                        </md-tab>
+
+                        <md-tab label="{{ 'project.ConceptualFramework' | translate }}">
+                            <md-content ng-repeat="item in projectCtr.projectsArrayConceptual"
+                                        class="project__white">
 
 
-                            <md-list-item  class="main__item project__item" ng-click="null">
-                                <div layout="column" translate="project.mockProject">
-                                </div>
-                            </md-list-item>
+                                <md-list-item  class="main__item project__item" ng-click="null">
+                                    <div layout="column">
+                                        {{item.projectName}}
+                                    </div>
+                                </md-list-item>
 
+                            </md-content>
+                        </md-tab>
 
-                        </md-content>
-                    </md-tab>
-                    <md-tab label="{{ 'project.archive' | translate }}">
-                        <md-content class="md-padding project__white">
+                    </md-tabs>
+                    <md-button ng-click="projectCtr.formContainer()" class="project__btn">
+                        <md-icon translate="icons.edit"></md-icon>
+                    </md-button>
+                </md-content>
 
-
-                            <md-list-item  class="main__item project__item" ng-click="null">
-                                <div class="project__noactiv"
-                                     layout="column"
-                                     translate="project.mockProject">
-                                </div>
-                            </md-list-item>
-
-                        </md-content>
-                    </md-tab>
-                </md-tabs>
                 <md-button ng-click="projectCtr.formContainer()" class="project__btn">
                     <md-icon translate="icons.edit"></md-icon>
                 </md-button>

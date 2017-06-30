@@ -1,12 +1,14 @@
 {
   "project": {
-    "actual": "Aktualne",
-    "archive": "Archiwalne",
-    "projectName": "Nazwa projektu",
+    "Maintenance": "Utrzymanie",
+    "Closure": "Zamknięte",
+    "Rollout": "Wdrożenie",
+    "Development": "Development",
+    "ConceptualFramework": "Ramy koncepcyjne",
     "nameRequired": "Twój projekt jest wymagany.",
     "typeRequired": "Typ projektu jest wymagany",
     "choose": "Wybierz rodzaj",
     "addProject": "Dodaj projekt: ",
-    "mockProject": "Projekt Relyon"
+    "projectName": "nazwa Projektu"
   }
 }
